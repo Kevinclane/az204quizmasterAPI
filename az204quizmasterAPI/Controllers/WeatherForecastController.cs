@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace az204quizmasterAPI.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("test")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
