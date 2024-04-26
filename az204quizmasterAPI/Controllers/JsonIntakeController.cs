@@ -21,7 +21,7 @@ namespace az204quizmasterAPI.Controllers
         {
             try
             {
-                string? error = _jsonIntakeService.ingestJson(jsonString);
+                string? error = _jsonIntakeService.IngestJson(jsonString);
                 if (error == null)
                 {
                     return "Sucessfully parsed JSON";

@@ -11,7 +11,7 @@ namespace az204quizmasterAPI.Services
             _context = context;
         }
 
-        public string? ingestJson(string jsonString)
+        public string? IngestJson(string jsonString)
         {
             JsonIntake? jsonIntake = JsonSerializer.Deserialize<JsonIntake>(jsonString);
             if (jsonIntake == null)
@@ -19,16 +19,16 @@ namespace az204quizmasterAPI.Services
                 return "error parsing Json";
             }
 
-            string? error = validateJson(jsonIntake);
+            string? error = ValidateJson(jsonIntake);
 
             return error;
         }
 
-        private string? validateJson(JsonIntake jsonIntake)
+        private string? ValidateJson(JsonIntake jsonIntake)
         {
             if (jsonIntake.OptionIntakes.Count < 2)
             {
-                return jsonIntake.Question + ": must have at least 2 options.";
+                return "Question [" + jsonIntake.Question + "] must have at least 2 options.";
             }
 
             string? error;
@@ -36,13 +36,13 @@ namespace az204quizmasterAPI.Services
             switch (jsonIntake.QuestionType)
             {
                 case "MultipleChoiceSingle":
-                    error = validateMultipleChoiceSingle(jsonIntake);
+                    error = ValidateMultipleChoiceSingle(jsonIntake);
                     break;
                 case "MultipleChoiceMultiple":
-                    error = validateMultipleChoiceMulitple(jsonIntake);
+                    error = ValidateMultipleChoiceMulitple(jsonIntake);
                     break;
                 case "Match":
-                    error = validateMatch(jsonIntake);
+                    error = ValidateMatch(jsonIntake);
                     break;
                 default:
                     return "Invalid QuestionType";
@@ -51,16 +51,16 @@ namespace az204quizmasterAPI.Services
             return error;
         }
 
-        private string? validateMultipleChoiceSingle(JsonIntake jsonIntake)
+        private string? ValidateMultipleChoiceSingle(JsonIntake jsonIntake)
         {
-            int correctAnswerCount = getCorrectAnswerCount(jsonIntake.OptionIntakes);
+            int correctAnswerCount = GetCorrectAnswerCount(jsonIntake.OptionIntakes);
             if (correctAnswerCount == 0)
             {
-                return "Question[ " + jsonIntake.Question + "] is missing a correct answer.";
+                return "Question [" + jsonIntake.Question + "] is missing a correct answer.";
             }
             else if (correctAnswerCount > 1)
             {
-                return "Question[ " + jsonIntake.Question + "] can only have 1 correct answer.";
+                return "Question [" + jsonIntake.Question + "] can only have 1 correct answer.";
             }
             else
             {
@@ -68,17 +68,17 @@ namespace az204quizmasterAPI.Services
             }
         }
 
-        private string? validateMultipleChoiceMulitple(JsonIntake jsonIntake)
+        private string? ValidateMultipleChoiceMulitple(JsonIntake jsonIntake)
         {
-            int correctAnswerCount = getCorrectAnswerCount(jsonIntake.OptionIntakes);
+            int correctAnswerCount = GetCorrectAnswerCount(jsonIntake.OptionIntakes);
             if (correctAnswerCount == 0)
             {
-                return "Question[ " + jsonIntake.Question + "] must have at least one answer.";
+                return "Question [" + jsonIntake.Question + "] must have at least one answer.";
             }
             return null;
         }
 
-        private string? validateMatch(JsonIntake jsonIntake)
+        private string? ValidateMatch(JsonIntake jsonIntake)
         {
             bool hasValidAnswers = true;
             foreach (OptionIntake option in jsonIntake.OptionIntakes)
@@ -88,10 +88,10 @@ namespace az204quizmasterAPI.Services
                     hasValidAnswers = false;
                 }
             }
-            return hasValidAnswers ? null : "Question[ " + jsonIntake.Question + "] has one or more missing display options.";
+            return hasValidAnswers ? null : "Question [" + jsonIntake.Question + "] has one or more missing display options.";
         }
 
-        private int getCorrectAnswerCount(ICollection<OptionIntake> optionIntakes)
+        private int GetCorrectAnswerCount(ICollection<OptionIntake> optionIntakes)
         {
             int count = 0;
             foreach (OptionIntake optionIntake in optionIntakes)

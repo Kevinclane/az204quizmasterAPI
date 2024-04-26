@@ -7,7 +7,5 @@
         public required string LeftDisplay { get; set; }
         public string? RightDisplay { get; set; }
         public bool IsCorrect { get; set; }
-
-        public QA? QA { get; set; }
     }
 }

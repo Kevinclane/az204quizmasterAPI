@@ -11,10 +11,9 @@ namespace az204quizmasterAPI.Models.Entities
         public string? ReferenceLink { get; set; }
         public string? Image { get; set; }
 
-        public ICollection<Option> Options { get; set; }
 
         [SetsRequiredMembers]
-        public QA(int id, string question, string questionType, string? resourceLink, string? referenceLink, string? image, ICollection<Option> options)
+        public QA(int id, string question, string questionType, string? resourceLink, string? referenceLink, string? image)
         {
             Id = id;
             Question = question;
@@ -22,7 +21,6 @@ namespace az204quizmasterAPI.Models.Entities
             ResourceLink = resourceLink;
             ReferenceLink = referenceLink;
             Image = image;
-            Options = options;
         }
     }
 }
