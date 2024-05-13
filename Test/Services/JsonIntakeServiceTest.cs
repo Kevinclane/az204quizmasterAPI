@@ -36,7 +36,7 @@ namespace Test.Services
                 new("LD1", null, true)
                 ];
 
-            JsonIntake jsonIntake = new(
+            JsonIntake request = new(
                 "TestQuestion",
                 "MultipleChoiceSingle",
                 null,
@@ -44,8 +44,6 @@ namespace Test.Services
                 null,
                 options
                 );
-
-            string request = JsonSerializer.Serialize(jsonIntake);
 
             string? actual = service.IngestJson(request);
 
@@ -60,7 +58,7 @@ namespace Test.Services
                 new("LD1", null, false)
                 ];
 
-            JsonIntake jsonIntake = new(
+            JsonIntake request= new(
                 "TestQuestion",
                 "MultipleChoiceSingle",
                 null,
@@ -68,8 +66,6 @@ namespace Test.Services
                 null,
                 options
                 );
-
-            string request = JsonSerializer.Serialize(jsonIntake);
 
             string? actual = service.IngestJson(request);
 
@@ -91,7 +87,7 @@ namespace Test.Services
                 options.Add(new("LD" + i, null, true));
             }
 
-            JsonIntake jsonIntake = new(
+            JsonIntake request = new(
                 "TestQuestion",
                 "MultipleChoiceMultiple",
                 null,
@@ -99,8 +95,6 @@ namespace Test.Services
                 null,
                 options
                 );
-
-            string request = JsonSerializer.Serialize(jsonIntake);
 
             string? actual = service.IngestJson(request);
 
@@ -115,7 +109,7 @@ namespace Test.Services
                 new("LD1", null, false)
             ];
 
-            JsonIntake jsonIntake = new(
+            JsonIntake request = new(
                 "TestQuestion",
                 "MultipleChoiceMultiple",
                 null,
@@ -123,8 +117,6 @@ namespace Test.Services
                 null,
                 options
             );
-
-            string request = JsonSerializer.Serialize(jsonIntake);
 
             string? actual = service.IngestJson(request);
 
@@ -134,7 +126,7 @@ namespace Test.Services
         [TestMethod]
         public void IntakeJson_ShouldReturnError_WhenLessThan2OptionsProvided()
         {
-            JsonIntake jsonIntake = new(
+            JsonIntake request = new(
                 "TestQuestion",
                 "MultipleChoiceMultiple",
                 null,
@@ -142,8 +134,6 @@ namespace Test.Services
                 null,
                 []
             );
-
-            string request = JsonSerializer.Serialize(jsonIntake);
 
             string? actual = service.IngestJson(request);
 
@@ -158,7 +148,7 @@ namespace Test.Services
                 new("LD1", "RD1", false)
             ];
 
-            JsonIntake jsonIntake = new(
+            JsonIntake request = new(
                 "TestQuestion",
                 "Match",
                 null,
@@ -166,8 +156,6 @@ namespace Test.Services
                 null,
                 options
             );
-
-            string request = JsonSerializer.Serialize(jsonIntake);
 
             string? actual = service.IngestJson(request);
 
@@ -182,7 +170,7 @@ namespace Test.Services
                 new("LD1", "RD1", false)
             ];
 
-            JsonIntake jsonIntake = new(
+            JsonIntake request = new(
                 "TestQuestion",
                 "InvalidType",
                 null,
@@ -190,8 +178,6 @@ namespace Test.Services
                 null,
                 options
            );
-
-            string request = JsonSerializer.Serialize(jsonIntake);
 
             string? actual = service.IngestJson(request);
 
