@@ -11,9 +11,8 @@ namespace az204quizmasterAPI.Services
             _context = context;
         }
 
-        public string? IngestJson(string jsonString)
+        public string? IngestJson(JsonIntake jsonIntake)
         {
-            JsonIntake? jsonIntake = JsonSerializer.Deserialize<JsonIntake>(jsonString);
             if (jsonIntake == null)
             {
                 return "error parsing Json";

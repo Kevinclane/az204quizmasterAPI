@@ -1,4 +1,5 @@
-﻿using az204quizmasterAPI.Services;
+﻿using az204quizmasterAPI.Models.RequestModels;
+using az204quizmasterAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -17,11 +18,11 @@ namespace az204quizmasterAPI.Controllers
         }
 
         [HttpPost]
-        public string Post([FromBody] string jsonString)
+        public string Post([FromBody] JsonIntake jsonIntake)
         {
             try
             {
-                string? error = _jsonIntakeService.IngestJson(jsonString);
+                string? error = _jsonIntakeService.IngestJson(jsonIntake);
                 if (error == null)
                 {
                     return "Sucessfully parsed JSON";

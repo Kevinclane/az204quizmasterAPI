@@ -15,11 +15,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-
 var connectionString = "";
 if (builder.Environment.IsDevelopment())
 {
     connectionString = File.ReadAllText("localSecret.txt");
+    System.Console.WriteLine("Development mode");
 
     builder.Services.AddCors(options =>
     {
@@ -47,7 +47,7 @@ else
     };
     var client = new SecretClient(new Uri("https://quizmastervault.vault.azure.net/"), new DefaultAzureCredential(), options);
 
-    KeyVaultSecret secret = client.GetSecret("connectionString");
+    KeyVaultSecret secret = client.GetSecret("ConnectionString");
 
     connectionString = secret.Value;
 }
