@@ -6,6 +6,8 @@ using Azure.Core;
 using az204quizmasterAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
 
 // Add services to the container.
 
@@ -45,7 +47,8 @@ else
             Mode = RetryMode.Exponential
          }
     };
-    var client = new SecretClient(new Uri("https://quizmastervault.vault.azure.net/"), new DefaultAzureCredential(), options);
+
+    var client = new SecretClient(new Uri("https://az204quizmasterkeyvault.vault.azure.net/"), new DefaultAzureCredential(), options);
 
     KeyVaultSecret secret = client.GetSecret("ConnectionString");
 
