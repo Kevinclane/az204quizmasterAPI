@@ -18,24 +18,24 @@ namespace az204quizmasterAPI.Controllers
         }
 
         [HttpPost]
-        public string Post([FromBody] JsonIntake jsonIntake)
+        public string[] Post([FromBody] JsonIntake[] jsonIntakes)
         {
             try
             {
-                string? error = _jsonIntakeService.IngestJson(jsonIntake);
-                if (error == null)
+                string[] errors = _jsonIntakeService.IngestJson(jsonIntakes);
+                if (errors.Length == 0)
                 {
-                    return "Sucessfully parsed JSON";
+                    return ["Sucessfully ingested json"];
                 }
                 else
                 {
                     //Add bad request header
-                    return error;
+                    return errors;
                 }
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                return [ex.Message];
             }
         }
 

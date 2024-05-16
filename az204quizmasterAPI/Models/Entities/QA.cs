@@ -1,4 +1,6 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using az204quizmasterAPI.Models.Enums;
+using az204quizmasterAPI.Models.RequestModels;
+using System.Diagnostics.CodeAnalysis;
 
 namespace az204quizmasterAPI.Models.Entities
 {
@@ -6,21 +8,21 @@ namespace az204quizmasterAPI.Models.Entities
     {
         public int Id { get; set; }
         public required string Question { get; set; }
-        public required string QuestionType { get; set; }
+        public required QuestionTypeEnum QuestionType { get; set; }
         public string? ResourceLink { get; set; }
-        public string? ReferenceLink { get; set; }
         public string? Image { get; set; }
+        public CategoryEnum Category { get; set; }
+        public ICollection<Option> Options { get; set; } = null!;
 
 
         [SetsRequiredMembers]
-        public QA(int id, string question, string questionType, string? resourceLink, string? referenceLink, string? image)
+        public QA(string question, QuestionTypeEnum questionType, string? resourceLink, string? image, CategoryEnum category)
         {
-            Id = id;
             Question = question;
             QuestionType = questionType;
             ResourceLink = resourceLink;
-            ReferenceLink = referenceLink;
             Image = image;
+            Category = category;
         }
     }
 }

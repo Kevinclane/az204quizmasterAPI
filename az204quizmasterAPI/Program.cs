@@ -48,8 +48,6 @@ else
          }
     };
 
-    System.Diagnostics.Trace.WriteLine("Attempting login to Azure Key Vault.");
-
     var client = new SecretClient(new Uri("https://az204quizmasterkeyvault.vault.azure.net/"), new DefaultAzureCredential(), options);
 
     System.Diagnostics.Trace.WriteLine("Logged in.");

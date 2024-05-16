@@ -1,5 +1,7 @@
-﻿using az204quizmasterAPI.Models.RequestModels;
-using System.Text.Json;
+﻿using az204quizmasterAPI.Builders;
+using az204quizmasterAPI.Models.Entities;
+using az204quizmasterAPI.Models.Enums;
+using az204quizmasterAPI.Models.RequestModels;
 
 namespace az204quizmasterAPI.Services
 {
@@ -11,43 +13,51 @@ namespace az204quizmasterAPI.Services
             _context = context;
         }
 
-        public string? IngestJson(JsonIntake jsonIntake)
+        public string[] IngestJson(JsonIntake[] jsonIntakes)
         {
-            if (jsonIntake == null)
+            if (jsonIntakes == null || jsonIntakes.Length == 0)
             {
-                return "error parsing Json";
+                return ["error parsing Json"];
             }
 
-            string? error = ValidateJson(jsonIntake);
+            string[] errors = ValidateJson(jsonIntakes);
 
-            return error;
+            if (errors.Length == 0)
+            {
+                ParseAndSaveJsonIntakes(jsonIntakes);
+            }
+
+            return errors;
         }
 
-        private string? ValidateJson(JsonIntake jsonIntake)
+        private string[] ValidateJson(JsonIntake[] jsonIntakes)
         {
-            if (jsonIntake.OptionIntakes.Count < 2)
+            string[] errors = [];
+
+            foreach(var jsonIntake in jsonIntakes)
             {
-                return "Question [" + jsonIntake.Question + "] must have at least 2 options.";
+                if (jsonIntake.OptionIntakes.Count < 2)
+                {
+                    errors.Append("Question [" + jsonIntake.Question + "] must have at least 2 options.");
+                }
+
+                switch (jsonIntake.QuestionType)
+                {
+                    case QuestionTypeEnum.MultipleChoiceSingle :
+                        errors.Append(ValidateMultipleChoiceSingle(jsonIntake));
+                        break;
+                    case QuestionTypeEnum.MultipleChoiceMultiple:
+                        errors.Append(ValidateMultipleChoiceMulitple(jsonIntake));
+                        break;
+                    case QuestionTypeEnum.Match:
+                        errors.Append(ValidateMatch(jsonIntake));
+                        break;
+                    default:
+                        return ["Invalid QuestionType"];
+                }
             }
 
-            string? error;
-
-            switch (jsonIntake.QuestionType)
-            {
-                case "MultipleChoiceSingle":
-                    error = ValidateMultipleChoiceSingle(jsonIntake);
-                    break;
-                case "MultipleChoiceMultiple":
-                    error = ValidateMultipleChoiceMulitple(jsonIntake);
-                    break;
-                case "Match":
-                    error = ValidateMatch(jsonIntake);
-                    break;
-                default:
-                    return "Invalid QuestionType";
-            }
-
-            return error;
+            return errors;
         }
 
         private string? ValidateMultipleChoiceSingle(JsonIntake jsonIntake)
@@ -103,5 +113,20 @@ namespace az204quizmasterAPI.Services
             return count;
         }
 
+        private void ParseAndSaveJsonIntakes(JsonIntake[] jsonIntakes)
+        {
+            foreach(var jsonIntake in jsonIntakes)
+            {
+                QA qa = QABuilder.BuildQA(jsonIntake);
+                _context.Add(qa);
+
+                foreach(var option in qa.Options)
+                {
+                    _context.Add(option);
+                }
+
+                _context.SaveChanges();
+            }
+        }
     }
 }

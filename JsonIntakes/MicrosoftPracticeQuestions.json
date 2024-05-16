@@ -1,0 +1,626 @@
+[
+    {
+        "Question": "You need to delete an image with the tag dev/nginx:latest from an Azure container registry named devregistry. </br> Which code segment should you use?",
+        "QuestionType": 0,
+        "ResourceLink": "https://learn.microsoft.com/en-us/training/modules/build-and-store-container-images/",
+        "Category": 0,
+        "OptionIntakes": [
+            {
+                "LeftDisplay": "az acr repository delete --name devregistry --image dev/nginx:latest",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "az acr repository delete --name devregistry --suffix dev/nginx:latest",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "az acr manifest delete --registry devregistry -n dev/nginx:latest",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "az acr manifest delete --registry devregistry --suffix dev/nginx:latest --image dev/nginx:latest",
+                "IsCorrect": true
+            }
+        ]
+    },
+    {
+        "Question": "A company uses Azure Container Instances for an application. </br> You need to ensure that the containers are restarted when the process terminates with a nonzero exit code. </br> What should you do?",
+        "QuestionType": 0,
+        "ResourceLink": "https://learn.microsoft.com/training/modules/create-run-container-images-azure-container-instances/",
+        "Category": 0,
+        "OptionIntakes": [
+            {
+                "LeftDisplay": "Define a container restart policy of `Always`.",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Run the containers using a managed identity.",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Define a container restart policy of Never.",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Run an init container.",
+                "IsCorrect": true
+            }
+        ]
+    },
+    {
+        "Question": "You manage an Azure App Service web app named app1. App1 uses a service plan based on the Basic pricing tier. </br> You need to create a deployment slot for app1. </br> What should you do first?",
+        "QuestionType": 0,
+        "ResourceLink": "",
+        "Category": 0,
+        "OptionIntakes": [
+            {
+                "LeftDisplay": "Scale out app1.",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Scale up app1.",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Configure automated deployment of app1 with Azure DevOps.",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Configure automated deployment of app1 with GitHub.",
+                "IsCorrect": false
+            }
+        ]
+    },
+    {
+        "Question": "You manage a multi-instance deployment of an Azure App Service web app named app1. </br> You need to ensure a client application is routed to the same instance for the life of the session. </br> Which platform setting should you use?",
+        "QuestionType": 0,
+        "ResourceLink": "https://learn.microsoft.com/en-us/training/modules/configure-web-app-settings/",
+        "Category": 0,
+        "OptionIntakes": [
+            {
+                "LeftDisplay": "WebSocket",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Always on",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "HTTP version",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "ARR Affinity",
+                "IsCorrect": false
+            }
+        ]
+    },
+    {
+        "Question": "You plan to create an Azure Functions app named app1. </br> You need to ensure that app1 will satisfy the following requirements: </br> <ul> <li>Supports automatic scaling.</li> <li>Has event-based scaling behavior.</li> <li>Provides a serverless pricing model.</li> </ul> </br> Which hosting plan should you use?",
+        "QuestionType": 0,
+        "ResourceLink": "https://learn.microsoft.com/en-us/training/modules/explore-azure-functions/3-compare-azure-functions-hosting-options",
+        "Category": 0,
+        "OptionIntakes": [
+            {
+                "LeftDisplay": "App Service",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "App Service Environment",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Consumption",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Functions Premium",
+                "IsCorrect": false
+            }
+        ]
+    },
+    {
+        "Question": "A company plans to implement a Microsoft Defender for Cloud solution. </br> The company has the following requirements: </br> <ul> <li>Notifies when DNS domains are not deleted when a new Azure Functions app is deleted.</li> <li>Use native alerting.</li> <li>Minimize costs.</li> </ul> </br> You need to select a hosting plan. </br> Which hosting plan should you use?",
+        "QuestionType": 0,
+        "ResourceLink": "",
+        "Category": 0,
+        "OptionIntakes": [
+            {
+                "LeftDisplay": "Consumption",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Basic",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Premium",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Free",
+                "IsCorrect": false
+            }
+        ]
+    },
+    {
+        "Question": "You plan to create a C# script-based Azure Functions app. </br> You need to configure the trigger and bindings for the functions of the Azure Functions app. </br> What should you do?",
+        "QuestionType": 0,
+        "ResourceLink": "",
+        "Category": 0,
+        "OptionIntakes": [
+            {
+                "LeftDisplay": "Create a function.json file for each function.",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Create a host.json file for the Azure Functions app.",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Decorate methods of each function with C# attributes.",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Decorate parameters of each function with C# attributes.",
+                "IsCorrect": false
+            }
+        ]
+    },
+    {
+        "Question": "",
+        "QuestionType": 0,
+        "ResourceLink": "",
+        "Category": 0,
+        "OptionIntakes": [
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            }
+        ]
+    },
+    {
+        "Question": "",
+        "QuestionType": 0,
+        "ResourceLink": "",
+        "Category": 0,
+        "OptionIntakes": [
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            }
+        ]
+    },
+    {
+        "Question": "",
+        "QuestionType": 0,
+        "ResourceLink": "",
+        "Category": 0,
+        "OptionIntakes": [
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            }
+        ]
+    },
+    {
+        "Question": "",
+        "QuestionType": 0,
+        "ResourceLink": "",
+        "Category": 0,
+        "OptionIntakes": [
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            }
+        ]
+    },
+    {
+        "Question": "",
+        "QuestionType": 0,
+        "ResourceLink": "",
+        "Category": 0,
+        "OptionIntakes": [
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            }
+        ]
+    },
+    {
+        "Question": "",
+        "QuestionType": 0,
+        "ResourceLink": "",
+        "Category": 0,
+        "OptionIntakes": [
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            }
+        ]
+    },
+    {
+        "Question": "",
+        "QuestionType": 0,
+        "ResourceLink": "",
+        "Category": 0,
+        "OptionIntakes": [
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            }
+        ]
+    },
+    {
+        "Question": "",
+        "QuestionType": 0,
+        "ResourceLink": "",
+        "Category": 0,
+        "OptionIntakes": [
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            }
+        ]
+    },
+    {
+        "Question": "",
+        "QuestionType": 0,
+        "ResourceLink": "",
+        "Category": 0,
+        "OptionIntakes": [
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            }
+        ]
+    },
+    {
+        "Question": "",
+        "QuestionType": 0,
+        "ResourceLink": "",
+        "Category": 0,
+        "OptionIntakes": [
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            }
+        ]
+    },
+    {
+        "Question": "",
+        "QuestionType": 0,
+        "ResourceLink": "",
+        "Category": 0,
+        "OptionIntakes": [
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            }
+        ]
+    },
+    {
+        "Question": "",
+        "QuestionType": 0,
+        "ResourceLink": "",
+        "Category": 0,
+        "OptionIntakes": [
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            }
+        ]
+    },
+    {
+        "Question": "",
+        "QuestionType": 0,
+        "ResourceLink": "",
+        "Category": 0,
+        "OptionIntakes": [
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            }
+        ]
+    },
+    {
+        "Question": "",
+        "QuestionType": 0,
+        "ResourceLink": "",
+        "Category": 0,
+        "OptionIntakes": [
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            }
+        ]
+    },
+    {
+        "Question": "",
+        "QuestionType": 0,
+        "ResourceLink": "",
+        "Category": 0,
+        "OptionIntakes": [
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            }
+        ]
+    },
+    {
+        "Question": "",
+        "QuestionType": 0,
+        "ResourceLink": "",
+        "Category": 0,
+        "OptionIntakes": [
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            }
+        ]
+    },
+    {
+        "Question": "",
+        "QuestionType": 0,
+        "ResourceLink": "",
+        "Category": 0,
+        "OptionIntakes": [
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            }
+        ]
+    },
+    {
+        "Question": "",
+        "QuestionType": 0,
+        "ResourceLink": "",
+        "Category": 0,
+        "OptionIntakes": [
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            }
+        ]
+    },
+    {
+        "Question": "",
+        "QuestionType": 0,
+        "ResourceLink": "",
+        "Category": 0,
+        "OptionIntakes": [
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "",
+                "IsCorrect": false
+            }
+        ]
+    }
+]
