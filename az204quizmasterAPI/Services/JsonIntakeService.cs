@@ -13,47 +13,59 @@ namespace az204quizmasterAPI.Services
             _context = context;
         }
 
-        public string[] IngestJson(JsonIntake[] jsonIntakes)
+        public List<string> IngestJson(JsonIntake[] jsonIntakes)
         {
             if (jsonIntakes == null || jsonIntakes.Length == 0)
             {
                 return ["error parsing Json"];
             }
 
-            string[] errors = ValidateJson(jsonIntakes);
+            List<string> errors = ValidateJson(jsonIntakes);
 
-            if (errors.Length == 0)
+            if (errors.Count == 0)
             {
-                ParseAndSaveJsonIntakes(jsonIntakes);
+                errors = ParseAndSaveJsonIntakes(jsonIntakes);
             }
 
             return errors;
         }
 
-        private string[] ValidateJson(JsonIntake[] jsonIntakes)
+        private List<string> ValidateJson(JsonIntake[] jsonIntakes)
         {
-            string[] errors = [];
+            List<string> errors = new List<string>();
 
-            foreach(var jsonIntake in jsonIntakes)
+            foreach (var jsonIntake in jsonIntakes)
             {
-                if (jsonIntake.OptionIntakes.Count < 2)
+                if (jsonIntake.Options.Count < 2)
                 {
-                    errors.Append("Question [" + jsonIntake.Question + "] must have at least 2 options.");
+                    errors.Add("Question [" + jsonIntake.Question + "] must have at least 2 options.");
                 }
+
+                if (jsonIntake.Question == null)
+                {
+                    errors.Add("Question field must not be null.");
+                }
+
+                string? validationError = null;
 
                 switch (jsonIntake.QuestionType)
                 {
-                    case QuestionTypeEnum.MultipleChoiceSingle :
-                        errors.Append(ValidateMultipleChoiceSingle(jsonIntake));
+                    case QuestionTypeEnum.MultipleChoiceSingle:
+                        validationError = ValidateMultipleChoiceSingle(jsonIntake);
                         break;
                     case QuestionTypeEnum.MultipleChoiceMultiple:
-                        errors.Append(ValidateMultipleChoiceMulitple(jsonIntake));
+                        validationError = ValidateMultipleChoiceMulitple(jsonIntake);
                         break;
                     case QuestionTypeEnum.Match:
-                        errors.Append(ValidateMatch(jsonIntake));
+                        validationError =ValidateMatch(jsonIntake);
                         break;
                     default:
                         return ["Invalid QuestionType"];
+                }
+
+                if (validationError != null)
+                {
+                    errors.Add(validationError);
                 }
             }
 
@@ -62,7 +74,7 @@ namespace az204quizmasterAPI.Services
 
         private string? ValidateMultipleChoiceSingle(JsonIntake jsonIntake)
         {
-            int correctAnswerCount = GetCorrectAnswerCount(jsonIntake.OptionIntakes);
+            int correctAnswerCount = GetCorrectAnswerCount(jsonIntake.Options);
             if (correctAnswerCount == 0)
             {
                 return "Question [" + jsonIntake.Question + "] is missing a correct answer.";
@@ -79,7 +91,7 @@ namespace az204quizmasterAPI.Services
 
         private string? ValidateMultipleChoiceMulitple(JsonIntake jsonIntake)
         {
-            int correctAnswerCount = GetCorrectAnswerCount(jsonIntake.OptionIntakes);
+            int correctAnswerCount = GetCorrectAnswerCount(jsonIntake.Options);
             if (correctAnswerCount == 0)
             {
                 return "Question [" + jsonIntake.Question + "] must have at least one answer.";
@@ -90,7 +102,7 @@ namespace az204quizmasterAPI.Services
         private string? ValidateMatch(JsonIntake jsonIntake)
         {
             bool hasValidAnswers = true;
-            foreach (OptionIntake option in jsonIntake.OptionIntakes)
+            foreach (OptionIntake option in jsonIntake.Options)
             {
                 if (option.LeftDisplay == null || option.RightDisplay == null)
                 {
@@ -113,20 +125,39 @@ namespace az204quizmasterAPI.Services
             return count;
         }
 
-        private void ParseAndSaveJsonIntakes(JsonIntake[] jsonIntakes)
+        private List<string> ParseAndSaveJsonIntakes(JsonIntake[] jsonIntakes)
         {
-            foreach(var jsonIntake in jsonIntakes)
+            List<string> errors = new List<string>();
+
+            foreach (var jsonIntake in jsonIntakes)
             {
                 QA qa = QABuilder.BuildQA(jsonIntake);
-                _context.Add(qa);
 
-                foreach(var option in qa.Options)
+                QA? foundQa = _context.QAs.Where(q => q.Question == jsonIntake.Question).FirstOrDefault();
+
+                if (foundQa == null)
                 {
-                    _context.Add(option);
-                }
+                    _context.Add(qa);
 
-                _context.SaveChanges();
+                    foreach (var option in qa.Options)
+                    {
+                        _context.Add(option);
+                    }
+
+                    foreach (var link in qa.Links)
+                    {
+                        _context.Add(link);
+                    }
+
+                    _context.SaveChanges();
+                } 
+                else
+                {
+                    Console.WriteLine("Duplicate question detected: " + jsonIntake.Question);
+                    errors.Add("Duplicate question detected: " + jsonIntake.Question);
+                }
             }
+            return errors;
         }
     }
 }

@@ -18,12 +18,12 @@ namespace az204quizmasterAPI.Controllers
         }
 
         [HttpPost]
-        public string[] Post([FromBody] JsonIntake[] jsonIntakes)
+        public List<string> Post([FromBody] JsonIntake[] jsonIntakes)
         {
             try
             {
-                string[] errors = _jsonIntakeService.IngestJson(jsonIntakes);
-                if (errors.Length == 0)
+                List<string> errors = _jsonIntakeService.IngestJson(jsonIntakes);
+                if (errors.Count == 0)
                 {
                     return ["Sucessfully ingested json"];
                 }

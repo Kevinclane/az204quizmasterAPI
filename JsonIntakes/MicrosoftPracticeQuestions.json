@@ -2,9 +2,8 @@
     {
         "Question": "You need to delete an image with the tag dev/nginx:latest from an Azure container registry named devregistry. </br> Which code segment should you use?",
         "QuestionType": 0,
-        "ResourceLink": "https://learn.microsoft.com/en-us/training/modules/build-and-store-container-images/",
         "Category": 0,
-        "OptionIntakes": [
+        "Options": [
             {
                 "LeftDisplay": "az acr repository delete --name devregistry --image dev/nginx:latest",
                 "IsCorrect": true
@@ -19,16 +18,18 @@
             },
             {
                 "LeftDisplay": "az acr manifest delete --registry devregistry --suffix dev/nginx:latest --image dev/nginx:latest",
-                "IsCorrect": true
+                "IsCorrect": false
             }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/en-us/training/modules/build-and-store-container-images/"
         ]
     },
     {
         "Question": "A company uses Azure Container Instances for an application. </br> You need to ensure that the containers are restarted when the process terminates with a nonzero exit code. </br> What should you do?",
         "QuestionType": 0,
-        "ResourceLink": "https://learn.microsoft.com/training/modules/create-run-container-images-azure-container-instances/",
         "Category": 0,
-        "OptionIntakes": [
+        "Options": [
             {
                 "LeftDisplay": "Define a container restart policy of `Always`.",
                 "IsCorrect": true
@@ -43,16 +44,19 @@
             },
             {
                 "LeftDisplay": "Run an init container.",
-                "IsCorrect": true
+                "IsCorrect": false
             }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/create-run-container-images-azure-container-instances/",
+            "https://learn.microsoft.com/azure/container-instances/container-instances-restart-policy"
         ]
     },
     {
         "Question": "You manage an Azure App Service web app named app1. App1 uses a service plan based on the Basic pricing tier. </br> You need to create a deployment slot for app1. </br> What should you do first?",
         "QuestionType": 0,
-        "ResourceLink": "",
         "Category": 0,
-        "OptionIntakes": [
+        "Options": [
             {
                 "LeftDisplay": "Scale out app1.",
                 "IsCorrect": false
@@ -69,14 +73,14 @@
                 "LeftDisplay": "Configure automated deployment of app1 with GitHub.",
                 "IsCorrect": false
             }
-        ]
+        ],
+        "ResourceLinks": []
     },
     {
         "Question": "You manage a multi-instance deployment of an Azure App Service web app named app1. </br> You need to ensure a client application is routed to the same instance for the life of the session. </br> Which platform setting should you use?",
         "QuestionType": 0,
-        "ResourceLink": "https://learn.microsoft.com/en-us/training/modules/configure-web-app-settings/",
         "Category": 0,
-        "OptionIntakes": [
+        "Options": [
             {
                 "LeftDisplay": "WebSocket",
                 "IsCorrect": false
@@ -91,16 +95,18 @@
             },
             {
                 "LeftDisplay": "ARR Affinity",
-                "IsCorrect": false
+                "IsCorrect": true
             }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/en-us/training/modules/configure-web-app-settings/"
         ]
     },
     {
         "Question": "You plan to create an Azure Functions app named app1. </br> You need to ensure that app1 will satisfy the following requirements: </br> <ul> <li>Supports automatic scaling.</li> <li>Has event-based scaling behavior.</li> <li>Provides a serverless pricing model.</li> </ul> </br> Which hosting plan should you use?",
         "QuestionType": 0,
-        "ResourceLink": "https://learn.microsoft.com/en-us/training/modules/explore-azure-functions/3-compare-azure-functions-hosting-options",
         "Category": 0,
-        "OptionIntakes": [
+        "Options": [
             {
                 "LeftDisplay": "App Service",
                 "IsCorrect": false
@@ -117,14 +123,16 @@
                 "LeftDisplay": "Functions Premium",
                 "IsCorrect": false
             }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/en-us/training/modules/explore-azure-functions/3-compare-azure-functions-hosting-options"
         ]
     },
     {
         "Question": "A company plans to implement a Microsoft Defender for Cloud solution. </br> The company has the following requirements: </br> <ul> <li>Notifies when DNS domains are not deleted when a new Azure Functions app is deleted.</li> <li>Use native alerting.</li> <li>Minimize costs.</li> </ul> </br> You need to select a hosting plan. </br> Which hosting plan should you use?",
         "QuestionType": 0,
-        "ResourceLink": "",
         "Category": 0,
-        "OptionIntakes": [
+        "Options": [
             {
                 "LeftDisplay": "Consumption",
                 "IsCorrect": false
@@ -141,14 +149,19 @@
                 "LeftDisplay": "Free",
                 "IsCorrect": false
             }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/paths/implement-azure-functions/",
+            "https://learn.microsoft.com/azure/defender-for-cloud/defender-for-app-service-introduction",
+            "https://learn.microsoft.com/azure/azure-functions/security-concepts?tabs=v4",
+            "https://azure.microsoft.com/pricing/details/app-service/windows/"
         ]
     },
     {
         "Question": "You plan to create a C# script-based Azure Functions app. </br> You need to configure the trigger and bindings for the functions of the Azure Functions app. </br> What should you do?",
         "QuestionType": 0,
-        "ResourceLink": "",
         "Category": 0,
-        "OptionIntakes": [
+        "Options": [
             {
                 "LeftDisplay": "Create a function.json file for each function.",
                 "IsCorrect": true
@@ -165,462 +178,2241 @@
                 "LeftDisplay": "Decorate parameters of each function with C# attributes.",
                 "IsCorrect": false
             }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/en-us/training/modules/develop-azure-functions/3-create-triggers-bindings"
         ]
     },
     {
-        "Question": "",
-        "QuestionType": 0,
-        "ResourceLink": "",
+        "Question": "A company plans to create an Azure Functions app. </br> You need to recommend a solution that meets the following requirements: </br> <ul> <li>Executes multiple functions concurrently.</li> <li>Performs aggregation on the results from the functions.</li> <li>Avoids cold starts.</li> <li>Minimizes costs.</li> </ul> </br> Which two components should you recommend? Each correct answer presents part of the solution.",
+        "QuestionType": 1,
         "Category": 0,
-        "OptionIntakes": [
+        "Options": [
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "The Consumption plan",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
-                "IsCorrect": false
+                "LeftDisplay": "The Premium plan",
+                "IsCorrect": true
             },
             {
-                "LeftDisplay": "",
-                "IsCorrect": false
+                "LeftDisplay": "Fan-out/fan-in pattern",
+                "IsCorrect": true
             },
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "Function chaining pattern",
                 "IsCorrect": false
             }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/paths/implement-azure-functions/",
+            "https://learn.microsoft.com/azure/azure-functions/functions-premium-plan?tabs=portal",
+            "https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-cloud-backup?tabs=csharp",
+            "https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-overview?tabs=csharp#application-patterns"
         ]
     },
     {
-        "Question": "",
+        "Question": "You create a batch routine by using a timer trigger in Azure Functions. </br> You need to configure the batch routine to execute every 15 minutes. </br> Which code segment should you use?",
         "QuestionType": 0,
-        "ResourceLink": "",
         "Category": 0,
-        "OptionIntakes": [
+        "Options": [
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "[FunctionName('TimerTriggerCSharp')] public static void Run([TimerTrigger('0 */15 * * * 1-5')]TimerInfo myTimer, ILogger log) { if (myTimer.IsPastDue) { log.LogInformation('Timer is running late!'); } log.LogInformation($'C# Timer trigger function executed at: {DateTime.Now}'); }",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "[FunctionName('TimerTriggerCSharp')] public static void Run([TimerTrigger('*/15 * * * 0-4')]TimerInfo myTimer, ILogger log) { if (myTimer.IsPastDue) { log.LogInformation('Timer is running late!'); } log.LogInformation($'C# Timer trigger function executed at: {DateTime.Now}'); }",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "[FunctionName('TimerTriggerCSharp')] public static void Run([TimerTrigger('0 15 * * * ')]TimerInfo myTimer, ILogger log) { if (myTimer.IsPastDue) { log.LogInformation('Timer is running late!'); } log.LogInformation($'C# Timer trigger function executed at: {DateTime.Now}'); }",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
-                "IsCorrect": false
-            },
-            {
-                "LeftDisplay": "",
+                "LeftDisplay": "[FunctionName('TimerTriggerCSharp')] public static void Run([TimerTrigger('* 15 * * 1-5')]TimerInfo myTimer, ILogger log) { if (myTimer.IsPastDue) { log.LogInformation('Timer is running late!'); } log.LogInformation($'C# Timer trigger function executed at: {DateTime.Now}'); }",
                 "IsCorrect": false
             }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/execute-azure-function-with-triggers/",
+            "https://learn.microsoft.com/azure/azure-functions/functions-bindings-timer?tabs=in-process&pivots=programming-language-csharp#ncrontab-expressions"
         ]
     },
     {
-        "Question": "",
+        "Question": "You manage the deployment of an Azure Container Registry named registry1 for a company. </br> You need to ensure that registry1 can be shared across multiple groups in the company, enabling group isolation. </br> What should you use?",
         "QuestionType": 0,
-        "ResourceLink": "",
         "Category": 0,
-        "OptionIntakes": [
+        "Options": [
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "artifact",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "tag",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
-                "IsCorrect": false
+                "LeftDisplay": "namespace",
+                "IsCorrect": true
             },
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "layer",
                 "IsCorrect": false
             }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/publish-container-image-to-azure-container-registry/",
+            "https://learn.microsoft.com/azure/container-registry/container-registry-concepts",
+            "https://learn.microsoft.com/azure/container-registry/container-registry-best-practices#repository-namespaces"
         ]
     },
     {
-        "Question": "",
+        "Question": "You need to create a container in a container group and mount an Azure file share as volume. </br> Which code segment should you use?",
         "QuestionType": 0,
-        "ResourceLink": "",
         "Category": 0,
-        "OptionIntakes": [
+        "Options": [
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "az container create -g MyResourceGroup --name myapp --image myimage:latest --command-line 'cat /mnt/azfile/myfile' --azure-file-volume-share-name myshare --azure-file-volume-account-name mystorageaccount --azure-file-volume-account-key mystoragekey --azure-file-volume-mount-path /mnt/azfile",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "az container create -g MyResourceGroup --name myapp --image myimage:latest --command-line 'cat /mnt/azfile/myfile' --azure-file-volume-share-name myshare --azure-file-volume-account-name mystorageaccount --azure-file-volume-account-key mystoragekey --secrets-mount-path /mnt/azfile",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "az container create -g MyResourceGroup –name myapp –image myimage:latest --command-line 'cat /mnt/azfile/myfile' --azure-file-volume-account-name mystorageaccount --azure-file-volume-account-key mystoragekey --azure-file-volume-mount-path /mnt/azfile",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
-                "IsCorrect": false
-            },
-            {
-                "LeftDisplay": "",
+                "LeftDisplay": "az container create -g MyResourceGroup --name myapp --image myimage:latest --command-line 'cat /mnt/azfile/myfile' --azure-file-volume-account-name mystorageaccount --azure-file-volume-account-key mystoragekey --secrets-mount-path /mnt/azfile",
                 "IsCorrect": false
             }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/run-docker-with-azure-container-instances/5-use-data-volumes",
+            "https://learn.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-create"
         ]
     },
     {
-        "Question": "",
+        "Question": "You create an Azure web app locally. The web app consists of a ZIP package. </br> You need to deploy the web app by using the Azure CLI. The deployment must reduce the likelihood of locked files. </br> What should you do?",
         "QuestionType": 0,
-        "ResourceLink": "",
         "Category": 0,
-        "OptionIntakes": [
+        "Options": [
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "Run az webapp deploy specifying --clean true.",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "Run az webapp deploy specifying --restart true.",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
-                "IsCorrect": false
+                "LeftDisplay": "Run az webapp deploy to a staging slot with auto swap on.",
+                "IsCorrect": true
             },
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "Run az webapp deploy by using a high value for the --timeout parameter.",
                 "IsCorrect": false
             }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/introduction-to-azure-app-service/4-deploy-code-to-app-service?ns-enrollment-type=learningpath&ns-enrollment-id=learn.wwl.create-azure-app-service-web-apps",
+            "https://learn.microsoft.com/azure/app-service/deploy-zip?tabs=cli"
         ]
     },
     {
-        "Question": "",
+        "Question": "You need to configure a web app to allow external requests from https://myapps.com. </br> Which Azure CLI command should you use?",
         "QuestionType": 0,
-        "ResourceLink": "",
         "Category": 0,
-        "OptionIntakes": [
+        "Options": [
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "az webapp cors add -g MyResourceGroup -n MyWebApp --allowed-origins https://myapps.com",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "az webapp identity add -g MyResourceGroup -n MyWebApp --allowed-origins https://myapps.com",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "az webapp traffic-routing set --distribution myapps=100 --name MyWebApp --resource-group MyResourceGroup",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
-                "IsCorrect": false
-            },
-            {
-                "LeftDisplay": "",
+                "LeftDisplay": "az webapp config access-restriction add -g MyResourceGroup -n MyWebApp --rule-name external --action Allow -ids myapps --priority 200",
                 "IsCorrect": false
             }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/control-azure-services-with-cli/",
+            "https://learn.microsoft.com/cli/azure/webapp/config/access-restriction?view=azure-cli-latest"
         ]
     },
     {
-        "Question": "",
+        "Question": "You are developing a .NET application that includes multiple container images. The application will be deployed to Azure Container Instances (ACI). </br. You need to ensure that an Azure file share can be mapped to each container of the application. </br> Which configuration should you use?",
         "QuestionType": 0,
-        "ResourceLink": "",
         "Category": 0,
-        "OptionIntakes": [
+        "Options": [
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "pods",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "confidential containers",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
-                "IsCorrect": false
+                "LeftDisplay": "container group",
+                "IsCorrect": true
             },
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "virtual network deployment",
                 "IsCorrect": false
             }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/create-run-container-images-azure-container-instances/2-azure-container-instances-overview",
+            "https://learn.microsoft.com/azure/container-instances/container-instances-overview"
         ]
     },
     {
-        "Question": "",
+        "Question": "You are developing a Linux web app on Azure App Service. </br> You need to deploy the web app to the production environment based on the following requirements: <ul> <li> App changes must be validated in an environment identical to the production environment before moving the app to the production environment. </li> <li> Downtime must be eliminated when the app is deployed to the production environment. </li> </ul> </br> What should you use?",
         "QuestionType": 0,
-        "ResourceLink": "",
         "Category": 0,
-        "OptionIntakes": [
+        "Options": [
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "Deployment slots",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Auto-scaling",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "Hybrid connection",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
-                "IsCorrect": false
-            },
-            {
-                "LeftDisplay": "",
+                "LeftDisplay": "App cloning",
                 "IsCorrect": false
             }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/understand-app-service-deployment-slots/2-app-service-staging-environments",
+            "https://learn.microsoft.com/training/modules/introduction-to-azure-app-service/6-network-features",
+            "https://learn.microsoft.com/training/modules/introduction-to-azure-app-service/3-azure-app-service-plans",
+            "https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits",
+            "https://learn.microsoft.com/azure/app-service/app-service-hybrid-connections",
+            "https://learn.microsoft.com/azure/app-service/app-service-web-app-cloning#current-restrictions"
         ]
     },
     {
-        "Question": "",
+        "Question": "A company has an App Service web app that requires a TLS/SSL certificate. The certificate will be used in other App Service apps. The certificate must be automatically renewed with the least management overhead. </br> You need to add the certificate. </br> What should you do?",
         "QuestionType": 0,
-        "ResourceLink": "",
         "Category": 0,
-        "OptionIntakes": [
+        "Options": [
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "Create a free App Service managed certificate.",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "Purchase an App Service certificate.",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Upload a certificate from a third party.",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
-                "IsCorrect": false
-            },
-            {
-                "LeftDisplay": "",
+                "LeftDisplay": "Import a certificate from a Key Vault.",
                 "IsCorrect": false
             }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/configure-web-app-settings/6-configure-security-certificates",
+            "https://learn.microsoft.com/azure/key-vault/certificates/certificate-scenarios"
         ]
     },
     {
-        "Question": "",
+        "Question": "You are developing an Azure Functions app that will be deployed to a Consumption plan. The app consumes data from a database server that has limited throughput. </br> You need to use the functionAppScaleLimit property to control the number of instances of the app that will be created. </br> Which value should you use for the property setting?",
         "QuestionType": 0,
-        "ResourceLink": "",
         "Category": 0,
-        "OptionIntakes": [
+        "Options": [
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "0",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
-                "IsCorrect": false
+                "LeftDisplay": "10",
+                "IsCorrect": true
             },
             {
-                "LeftDisplay": "",
-                "IsCorrect": false
-            },
-            {
-                "LeftDisplay": "",
+                "LeftDisplay": "null",
                 "IsCorrect": false
             }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/explore-azure-functions/4-scale-azure-functions",
+            "https://learn.microsoft.com/azure/azure-functions/functions-scale"
         ]
     },
     {
-        "Question": "",
+        "Question": "You are developing an Azure Functions app that will be deployed to a Dedicated plan. </br> When there is a resource shortage in the app, it must send a “429 Too Busy” response. </br>You need to apply the appropriate configuration to all functions in a Azure Functions app instance. </br> Which configuration should you set?",
         "QuestionType": 0,
-        "ResourceLink": "",
         "Category": 0,
-        "OptionIntakes": [
+        "Options": [
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "dynamicThrottlesEnabled in the host.json file",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "bindings section in the function.json file",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "maxOutstandingRequests in the host.json file",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
-                "IsCorrect": false
-            },
-            {
-                "LeftDisplay": "",
+                "LeftDisplay": "maxConcurrentRequests in the function.json file",
                 "IsCorrect": false
             }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/develop-azure-functions/3-create-triggers-bindings",
+            "https://learn.microsoft.com/azure/azure-functions/functions-bindings-http-webhook?tabs=in-process%2Cfunctionsv2&pivots=programming-language-csharp"
         ]
     },
     {
-        "Question": "",
+        "Question": "You manage an Azure API Management instance. </br> You need to limit the maximum number of API calls allowed from a single source for a specific time interval. </br> What should you configure?",
         "QuestionType": 0,
-        "ResourceLink": "",
-        "Category": 0,
-        "OptionIntakes": [
+        "Category": 4,
+        "Options": [
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "Product",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "Policy",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Subscription",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
-                "IsCorrect": false
-            },
-            {
-                "LeftDisplay": "",
+                "LeftDisplay": "API",
                 "IsCorrect": false
             }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/introduction-to-azure-api-management/3-how-azure-api-management-works",
+            "https://learn.microsoft.com/azure/api-management/api-management-subscriptions"
         ]
     },
     {
-        "Question": "",
+        "Question": "You plan to use Azure API Management for Hybrid and multicloud API management. </br> You need to create a self-hosted gateway for production. </br> Which container image tag should you use?",
         "QuestionType": 0,
-        "ResourceLink": "",
-        "Category": 0,
-        "OptionIntakes": [
+        "Category": 4,
+        "Options": [
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "2.0.1",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "v3",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "latest",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
-                "IsCorrect": false
-            },
-            {
-                "LeftDisplay": "",
+                "LeftDisplay": "V3-preview",
                 "IsCorrect": false
             }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/explore-api-management/",
+            "https://learn.microsoft.com/azure/api-management/self-hosted-gateway-overview"
         ]
     },
     {
-        "Question": "",
+        "Question": "You have an Azure event hub. </br> You need to add partitions to the event hub. </br> Which code segment should you use?",
         "QuestionType": 0,
-        "ResourceLink": "",
-        "Category": 0,
-        "OptionIntakes": [
+        "Category": 4,
+        "Options": [
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "az eventhubs eventhub consumer-group update --resource-group MyResourceGroupName --namespace-name MyNamespaceName --eventhub-name MyEventHubName --set partitioncount=12",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "az eventhubs eventhub consumer-group create --resource-group MyResourceGroupName --namespace-name MyNamespaceName --eventhub-name MyEventHubName --set partitioncount=12",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
-                "IsCorrect": false
+                "LeftDisplay": "az eventhubs eventhub update --resource-group MyResourceGroupName --namespace-name MyNamespaceName --name MyEventHubName --partition-count 12",
+                "IsCorrect": true
             },
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "az eventhubs eventhub create --resource-group MyResourceGroupName --namespace-name MyNamespaceName --name MyEventHubName --partition-count 12",
                 "IsCorrect": false
             }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/control-azure-services-with-cli/",
+            "https://learn.microsoft.com/cli/azure/eventhubs/eventhub?view=azure-cli-latest#az-eventhubs-eventhub-update"
         ]
     },
     {
-        "Question": "",
+        "Question": "You manage an Azure event hub. </br> You need to ensure that multiple load-balanced instances of a .NET application (version 5.0) can be used to scale event processing. </br> Which event processor client should you use?",
         "QuestionType": 0,
-        "ResourceLink": "",
-        "Category": 0,
-        "OptionIntakes": [
+        "Category": 4,
+        "Options": [
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "EventHubConsumerClient",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "EventProcessorHost",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "EventHubProducerClient",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
-                "IsCorrect": false
+                "LeftDisplay": "EventProcessorClient",
+                "IsCorrect": true
             }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/azure-event-hubs/",
+            "https://learn.microsoft.com/training/modules/azure-event-hubs/4-event-processing",
+            "https://learn.microsoft.com/javascript/api/@azure/event-hubs/eventhubproducerclient?view=azure-node-latest"
         ]
     },
     {
-        "Question": "",
-        "QuestionType": 0,
-        "ResourceLink": "",
-        "Category": 0,
-        "OptionIntakes": [
+        "Question": "You develop this code to read all published events for the first partition in Azure Event Hubs. (Line numbers are included for reference only.) </br> You need to complete the code. </br> Which two actions should you perform? Each correct answer presents part of the solution.",
+        "QuestionType": 1,
+        "Image": "assets/AzureEventHubs.png",
+        "Category": 4,
+        "Options": [
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "Insert the following code segment at line 6: EventPosition startingPosition = EventPosition.Earliest;",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Insert the following code segment at line 6: EventPosition startingPosition = EventPosition.Latest;",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
-                "IsCorrect": false
+                "LeftDisplay": "Insert the following code segment at line 7: string partitionId = (await consumer.GetPartitionIdsAsync()).First();",
+                "IsCorrect": true
             },
             {
-                "LeftDisplay": "",
-                "IsCorrect": false
-            },
-            {
-                "LeftDisplay": "",
+                "LeftDisplay": "Insert the following code segment at line 7: int partitionId = (await consumer.GetPartitionIdsAsync()).First();",
                 "IsCorrect": false
             }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/azure-event-hubs/6-event-hubs-programming-guide",
+            "https://learn.microsoft.com/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.getpartitionidsasync?view=azure-dotnet",
+            "https://learn.microsoft.com/dotnet/api/azure.messaging.eventhubs.consumer.eventposition.earliest?view=azure-dotnet"
         ]
     },
     {
-        "Question": "",
+        "Question": "You have an instance of Azure Event Grid. </br> You need to ensure an application can receive events filtered by values in the data field in the advanced filtering options. </br> Which filter should you use?",
         "QuestionType": 0,
-        "ResourceLink": "",
-        "Category": 0,
-        "OptionIntakes": [
+        "Category": 4,
+        "Options": [
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "event type",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "subject",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
-                "IsCorrect": false
+                "LeftDisplay": "advanced",
+                "IsCorrect": true
             },
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "topics",
                 "IsCorrect": false
             }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/azure-event-grid/7-event-grid-filtering",
+            "https://learn.microsoft.com/azure/event-grid/concepts"
         ]
     },
     {
-        "Question": "",
+        "Question": "You have an Azure Service Bus instance. </br> You need to provide first-in, first-out (FIFO) guarantee for message processing. </br> What should you configure?",
         "QuestionType": 0,
-        "ResourceLink": "",
-        "Category": 0,
-        "OptionIntakes": [
+        "Category": 4,
+        "Options": [
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "dead-letter queue",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "message deferral",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
-                "IsCorrect": false
+                "LeftDisplay": "message sessions",
+                "IsCorrect": true
             },
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "scheduled delivery",
                 "IsCorrect": false
             }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/discover-azure-message-queue/3-azure-service-bus-overview",
+            "https://learn.microsoft.com/azure/service-bus-messaging/message-sessions"
         ]
     },
     {
-        "Question": "",
+        "Question": "You create an Azure Service Bus topic with a default message time to live of 10 minutes. </br> You need to send messages to this topic with a time to live of 15 minutes. The solution must not affect other applications that are using the topic. </br> What should you recommend?",
         "QuestionType": 0,
-        "ResourceLink": "",
-        "Category": 0,
-        "OptionIntakes": [
+        "Category": 4,
+        "Options": [
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "Change the topic's default time to live to 15 minutes.",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "Change the specific message's time to live to 15 minutes.",
                 "IsCorrect": false
             },
             {
-                "LeftDisplay": "",
-                "IsCorrect": false
+                "LeftDisplay": "Create a new topic with a default time to live of 15 minutes. Send the messages to this topic.",
+                "IsCorrect": true
             },
             {
-                "LeftDisplay": "",
+                "LeftDisplay": "Update the time to live for the queue containing the topic.",
                 "IsCorrect": false
             }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/discover-azure-message-queue/6-send-receive-messages-service-bus",
+            "https://learn.microsoft.com/dotnet/api/azure.messaging.servicebus.servicebusmessage.timetolive?view=azure-dotnet#azure-messaging-servicebus-servicebusmessage-timetolive"
+        ]
+    },
+    {
+        "Question": "You manage an Azure Cosmos DB database named database1. </br> You need to read items from the database without any ordering guarantee and ensure the highest availability. </br> Which consistency level should you use?",
+        "QuestionType": 0,
+        "Category": 1,
+        "Options": [
+            {
+                "LeftDisplay": "strong",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "bounded staleness",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "session",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "eventual",
+                "IsCorrect": true
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/paths/az-204-develop-solutions-that-use-azure-cosmos-db/",
+            "https://learn.microsoft.com/azure/cosmos-db/consistency-levels#eventual-consistency"
+        ]
+    },
+    {
+        "Question": "You manage an Azure Cosmos DB container named container1. </br> You need to use the ReadItemAsync method to read an item from the Azure Cosmos service. </br> Which two parameters do you need to provide? Each correct answer presents part of the solution.",
+        "QuestionType": 1,
+        "Category": 1,
+        "Options": [
+            {
+                "LeftDisplay": "consistencyLevel",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "eTag",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "partitionKey",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "sessionToken",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "itemId",
+                "IsCorrect": true
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/work-with-cosmos-db/2-cosmos-db-dotnet-overview",
+            "https://learn.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.readitemasync?view=azure-dotnet"
+        ]
+    },
+    {
+        "Question": "You have an application that writes data to Azure Cosmos DB. </br> The application must offer consistent prefix and monotonic reads. </br> You need to configure the consistency level. </br> Which consistency level should you use?",
+        "QuestionType": 0,
+        "Category": 1,
+        "Options": [
+            {
+                "LeftDisplay": "strong",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "bounded staleness",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "session",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "eventual",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/paths/az-204-develop-solutions-that-use-azure-cosmos-db/",
+            "https://learn.microsoft.com/azure/cosmos-db/consistency-levels"
+        ]
+    },
+    {
+        "Question": "You plan to implement a storage mechanism for managing state across multiple change feed consumers. </br> You need to configure the change feed processor in the .NET SDK for Azure Cosmos DB for NoSQL API. </br> Which component should you use?",
+        "QuestionType": 0,
+        "Category": 1,
+        "Options": [
+            {
+                "LeftDisplay": "Delegate",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Host",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Lease container",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Monitored container",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/consume-azure-cosmos-db-sql-api-change-feed-use-sdk/2-understand-features-sdk",
+            "https://learn.microsoft.com/azure/cosmos-db/nosql/change-feed-functions"
+        ]
+    },
+    {
+        "Question": "You have blobs in Azure Blob storage. The blobs store pictures. </br> You need to record the location and weather condition information from when the pictures were taken. You must ensure you can use up to 2,000 characters when recording the information. </br> What should you do?",
+        "QuestionType": 0,
+        "Category": 1,
+        "Options": [
+            {
+                "LeftDisplay": "Append a suffix to the blob name by using the location and weather. Add a delimiter between them.",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Use metadata headers defined with a POST request.",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Use metadata headers defined with a PUT request.",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Create one container for each location. Inside each container, define the blob name as the weather type and a random suffix.",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/paths/develop-solutions-that-use-blob-storage/",
+            "https://learn.microsoft.com/rest/api/storageservices/setting-and-retrieving-properties-and-metadata-for-blob-resources",
+            "https://learn.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata"
+        ]
+    },
+    {
+        "Question": "You have an Azure storage lifecycle policy for block blobs. </br> You need to create a prefixMatch filter rule that will contain an array of strings for prefixes to be matched. </br> What should be the first element of the prefix string?",
+        "QuestionType": 0,
+        "Category": 1,
+        "Options": [
+            {
+                "LeftDisplay": "a block blob index tag",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "a block blob name",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "a container name",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "a storage account name",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/manage-azure-blob-storage-lifecycle/3-blob-storage-lifecycle-policies",
+            "https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview"
+        ]
+    },
+    {
+        "Question": "You create this retention policy. (Line numbers are included for reference only.) </br> You need to transition blobs in the Hot access tier to an online tier if the blobs have not been modified in over 90 days. </br> Which code segment should you add to line 14?",
+        "QuestionType": 0,
+        "Image": "assets/BlobRetentionPolicy.png",
+        "Category": 1,
+        "Options": [
+            {
+                "LeftDisplay": "'tierToArchive': { 'daysAfterCreationGreaterThan': 90 }",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "'tierToCool': { 'daysAfterCreationGreaterThan': 90 }",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "'tierToCool': { 'daysAfterModificationGreaterThan': 90 }",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "'tierToArchive': { 'daysAfterModificationGreaterThan': 90 }",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/manage-azure-blob-storage-lifecycle/4-add-policy-blob-storage",
+            "https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview"
+        ]
+    },
+    {
+        "Question": "A company implements a multi-region Azure Cosmos DB account. </br> You need to configure the default consistency level for the account. The consistency level must ensure that update operations made as a batch within a transaction are always visible together. </br> Which consistency level should you use?",
+        "QuestionType": 0,
+        "Category": 1,
+        "Options": [
+            {
+                "LeftDisplay": "Bounded Staleness",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Session",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Consistent Prefix",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Eventual",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/explore-azure-cosmos-db/4-cosmos-db-consistency-levels-overview",
+            "https://learn.microsoft.com/azure/cosmos-db/consistency-levels"
+        ]
+    },
+    {
+        "Question": "A company implements an Azure Cosmos DB account named Account1 to store product details. </br> You need to write a parameterized SQL query to get items from the Products container based on category and price as parameters. </br> Which SQL query should you write?",
+        "QuestionType": 0,
+        "Category": 1,
+        "Options": [
+            {
+                "LeftDisplay": "SELECT * FROM Products p WHERE p.category = @Category AND p.price = @Price",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "SELECT * FROM Account1 a WHERE a.category = @Category AND a.price = @Price",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "SELECT * FROM Account1.Products p WHERE p.category = @Category AND p.price = @Price",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "SELECT * FROM Products p WHERE p.category = 'Category' AND p.price = 'Price'",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/work-with-cosmos-db/2-cosmos-db-dotnet-overview",
+            "https://learn.microsoft.com/azure/cosmos-db/nosql/query/parameterized-queries"
+        ]
+    },
+    {
+        "Question": "You are developing an application. </br> You need to set the standard HTTP properties of containers in Azure Blob Storage. </br> Which two HTTP properties can you set? Each correct answer presents part of the solution.",
+        "QuestionType": 1,
+        "Category": 1,
+        "Options": [
+            {
+                "LeftDisplay": "ETag",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Last-Modified",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Cache-Control",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Origin",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Range",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/work-azure-blob-storage/5-set-retrieve-properties-metadata-rest"
+        ]
+    },
+    {
+        "Question": "You manage Azure Cache for Redis by using classes in the .NET StackExchange.Redis namespace. </br> You need to retrieve a reference to a Redis database by using the GetDatabase method. </br> What do you need to do first?",
+        "QuestionType": 0,
+        "Category": 3,
+        "Options": [
+            {
+                "LeftDisplay": "Create a CdnManagementClient object.",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Create a ConnectionMultiplexer object.",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Call a StringSet method.",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Call a StringGet method.",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/develop-for-azure-cache-for-redis/4-interact-redis-api",
+            "https://learn.microsoft.com/azure/azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache"
+        ]
+    },
+    {
+        "Question": "You deploy a .NET web application to an on-premises web server. You plan to use Application Insights to monitor the web application's performance. </br> You need to allow the web application to upload its telemetry to Application Insights. </br> Which authorization method should you use?",
+        "QuestionType": 0,
+        "Category": 3,
+        "Options": [
+            {
+                "LeftDisplay": "access key",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "instrumentation key",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "system-assigned managed identity",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "user-assigned managed identity",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/monitor-app-performance/3-application-insights-overview",
+            "https://learn.microsoft.com/azure/azure-monitor/app/create-new-resource?tabs=net"
+        ]
+    },
+    {
+        "Question": "You develop an Azure function that connects to a SQL database. The function is instrumented by using Application Insights. </br> You need to view the full SQL query text when inspecting the Dependency tab in Application Insights. </br> Which two settings in the host.json file should you use? Each correct answer presents part of the solution.",
+        "QuestionType": 1,
+        "Category": 3,
+        "Options": [
+            {
+                "LeftDisplay": "'enableDependencyTracking': true",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "'dependencyTrackingOptions': { 'enableSqlCommandTextInstrumentation': true }",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "'enablePerformanceCountersCollection': true",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "'logLevel': { 'default': 'Verbose' }",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/monitor-app-performance/",
+            "https://learn.microsoft.com/azure/azure-monitor/app/asp-net-dependencies#advanced-sql-tracking-to-get-full-sql-query"
+        ]
+    },
+    {
+        "Question": "You have an Azure web application. </br> You need to configure an application performance management (APM) service to collect and monitor the application log data. </br> Which Azure service should you configure?",
+        "QuestionType": 0,
+        "Category": 3,
+        "Options": [
+            {
+                "LeftDisplay": "Azure Monitor",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Log Analytics",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Application Insights",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Azure Advisor",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/monitor-app-performance/",
+            "https://learn.microsoft.com/azure/advisor/",
+            "https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-tutorial"
+        ]
+    },
+    {
+        "Question": "You need to track the availability of an Azure App Service web app by using an Application Insights multi-step availability test. </br> Which tool should you use?",
+        "QuestionType": 0,
+        "Category": 3,
+        "Options": [
+            {
+                "LeftDisplay": "Azure portal",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Azure CLI",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Visual Studio",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Visual Studio Code",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/monitor-app-performance/6-availability-tests",
+            "https://learn.microsoft.com/azure/azure-monitor/app/availability-multistep"
+        ]
+    },
+    {
+        "Question": "You need to capture user actions by using the Azure Application Insights API. </br> Which API call should you use?",
+        "QuestionType": 0,
+        "Category": 3,
+        "Options": [
+            {
+                "LeftDisplay": "TrackEvent",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "TrackMetric",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "TrackRequest",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "TrackTrace",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/monitor-app-performance/5-app-instrumentation",
+            "https://learn.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics"
+        ]
+    },
+    {
+        "Question": "You plan to develop a web job that performs calculations on top of data that is collected from users. </br> You need to send pre-aggregated summary metrics to Azure Monitor. </br> Which Application Insights method should you use?",
+        "QuestionType": 0,
+        "Category": 3,
+        "Options": [
+            {
+                "LeftDisplay": "GetMetric",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "TrackMetric",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "SetMetric",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "LogMetric",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/paths/az-204-instrument-solutions-support-monitoring-logging/",
+            "https://learn.microsoft.com/azure/azure-monitor/app/get-metric"
+        ]
+    },
+    {
+        "Question": "You have an Application Insights instance named insight1. </br> You need to configure a web app to send telemetry data to insight1. </br> Which Application Insights parameter should you use?",
+        "QuestionType": 0,
+        "Category": 3,
+        "Options": [
+            {
+                "LeftDisplay": "instrumentation key",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "alerts",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "application map",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "usage analysis",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/capture-page-load-times-application-insights/2-enable-application-insights",
+            "https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview?tabs=net"
+        ]
+    },
+    {
+        "Question": "You have an Azure Storage account. </br> You need to provide external users the ability to create and update blobs. </br> Which enum value of BlobSasPermissions should you use?",
+        "QuestionType": 0,
+        "Category": 2,
+        "Options": [
+            {
+                "LeftDisplay": "Add",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Create",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Read",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Write",
+                "IsCorrect": true
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/control-access-to-azure-storage-with-sas/",
+            "https://learn.microsoft.com/azure/storage/blobs/sas-service-create?tabs=dotnet"
+        ]
+    },
+    {
+        "Question": "You develop an application. The application will be accessed by a supplier. </br> The supplier requires a shared access signature (SAS) to access Azure services in your company's subscription. </br> You need to secure the SAS. </br> Which three actions should you take? Each correct answer presents a complete solution.",
+        "QuestionType": 1,
+        "Category": 2,
+        "Options": [
+            {
+                "LeftDisplay": "Always use HTTPS.",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Grant permission to multiple resources.",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Use Azure Monitor and Azure Storage logs to monitor the application.",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Define a stored access policy for a service SAS.",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Set a long expiration time.",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/control-access-to-azure-storage-with-sas/",
+            "https://learn.microsoft.com/azure/storage/common/storage-sas-overview"
+        ]
+    },
+    {
+        "Question": "You manage a Microsoft Entra ID registered application named app1. App1 calls a web API, which then calls Microsoft Graph. </br> You need to ensure the signed-in user identity is delegated through the request chain. </br> Which authentication flow should you use?",
+        "QuestionType": 0,
+        "Category": 2,
+        "Options": [
+            {
+                "LeftDisplay": "Authorization code",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "On-Behalf-Of",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Client credentials",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Implicit",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/implement-authentication-by-using-microsoft-authentication-library/",
+            "https://learn.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow",
+            "https://learn.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow"
+        ]
+    },
+    {
+        "Question": "You plan to generate a shared access signature (SAS) token for read access to a blob in a storage account. </br> You need to secure the token from being compromised. </br> What should you use?",
+        "QuestionType": 0,
+        "Category": 2,
+        "Options": [
+            {
+                "LeftDisplay": "Primary account key",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Secondary account key",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Microsoft Entra ID credentials assigned the Contributor role",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Microsoft Entra ID credentials assigned the Reader role",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/implement-shared-access-signatures/2-shared-access-signatures-overview",
+            "https://learn.microsoft.com/rest/api/storageservices/create-user-delegation-sas"
+        ]
+    },
+    {
+        "Question": "You need to generate a shared access signature token that grants the Read permission to a blob container. </br> Which code segment should you use?",
+        "QuestionType": 0,
+        "Category": 2,
+        "Options": [
+            {
+                "LeftDisplay": "BlobSasBuilder sasBuilder = new BlobSasBuilder() { BlobContainerName = containerClient.Name, Resource = 'b' }; sasBuilder.ExpiresOn = DateTimeOffset.UtcNow.AddHours(1); sasBuilder.SetPermissions(BlobContainerSasPermissions.Read); Uri sasUri = containerClient.GenerateSasUri(sasBuilder);",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "BlobSasBuilder sasBuilder = new BlobSasBuilder() { BlobContainerName = containerClient.Name, Resource = 'c' }; sasBuilder.ExpiresOn = DateTimeOffset.UtcNow.AddHours(1); sasBuilder.SetPermissions(BlobContainerSasPermissions.Read); Uri sasUri = containerClient.GenerateSasUri(sasBuilder);",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "BlobSasBuilder sasBuilder = new BlobSasBuilder() { BlobContainerName = containerClient.Name, Resource = 'c' }; sasBuilder.ExpiresOn = DateTimeOffset.UtcNow.AddHours(1); sasBuilder.SetPermissions(BlobContainerSasPermissions.Create); Uri sasUri = containerClient.GenerateSasUri(sasBuilder);",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "BlobSasBuilder sasBuilder = new BlobSasBuilder() { BlobContainerName = containerClient.Name, Resource = 'b' }; sasBuilder.ExpiresOn = DateTimeOffset.UtcNow.AddHours(1); sasBuilder.SetPermissions(BlobContainerSasPermissions.Create); Uri sasUri = containerClient.GenerateSasUri(sasBuilder);",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/paths/store-data-in-azure/",
+            "https://learn.microsoft.com/azure/storage/blobs/sas-service-create?tabs=dotnet"
+        ]
+    },
+    {
+        "Question": "You plan to enable a user to create a managed identity for an Azure virtual machine (VM). </br> You need to ensure the following requirements are met: </br> <ul> <li> The user account must have sufficient permissions to create the managed identity. </li> </ul> </br> The principle of least privilege must be used. </br> Which permission role should you assign?",
+        "QuestionType": 0,
+        "Category": 2,
+        "Options": [
+            {
+                "LeftDisplay": "Virtual Machine Administrator Login",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Virtual Machine Contributor",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Global Administrator",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Security Administrator",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/implement-managed-identities/4-configure-managed-identities",
+            "https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm"
+        ]
+    },
+    {
+        "Question": "You have 10 applications running in Azure App Service. </br> You need to ensure the applications have access to items stored in Azure App Configuration by using a common configuration. Passwords or keys must not be used. </br> Which solution should you use?",
+        "QuestionType": 0,
+        "Category": 2,
+        "Options": [
+            {
+                "LeftDisplay": "system-assigned managed identities",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "user-assigned managed identity",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "service principal with permissions to Azure App Configuration",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "developer's credentials in code",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/implement-azure-app-configuration/",
+            "https://learn.microsoft.com/azure/app-service/overview-managed-identity?tabs=portal%2Chttp"
+        ]
+    },
+    {
+        "Question": "You need to group keys in Azure App Configuration. </br> What are two possible ways to achieve this goal? Each correct answer presents a complete solution.",
+        "QuestionType": 1,
+        "Category": 2,
+        "Options": [
+            {
+                "LeftDisplay": "Use Azure role-based access control. Grant the Read permission to read keys that belong to the application.",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Organize keys by using key prefixes.",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Use managed identity. Grant the Read permission to read keys that belong to the application.",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Organize keys by using labels.",
+                "IsCorrect": true
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/implement-azure-app-configuration/",
+            "https://learn.microsoft.com/azure/azure-app-configuration/howto-best-practices"
+        ]
+    },
+    {
+        "Question": "You manage an Azure App Service web app named app1 and an Azure Key Vault named vault1. </br> You need to ensure app1 can authenticate and conduct operations with vault1 without managing the rotation of a secret. </br> Which authentication method should you use for app1?",
+        "QuestionType": 0,
+        "Category": 2,
+        "Options": [
+            {
+                "LeftDisplay": "user-assigned managed identity",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "service principal and secret",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "service principal and certificate",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "system-assigned managed identity",
+                "IsCorrect": true
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/implement-azure-key-vault/",
+            "https://learn.microsoft.com/azure/key-vault/general/soft-delete-overview",
+            "https://learn.microsoft.com/azure/key-vault/general/assign-access-policy?tabs=azure-portal"
+        ]
+    },
+    {
+        "Question": "You have an Azure App Configuration instance named AppConfig1 and an Azure key vault named KeyVault1. </br> You plan to encrypt data stored in AppConfig1 by using your own key stored in KeyVault1. </br> You need to grant permissions in KeyVault1 to the identity assigned to AppConfig1. </br> Which three key-specific permissions should you use? Each correct answer presents part of the solution.",
+        "QuestionType": 1,
+        "Category": 2,
+        "Options": [
+            {
+                "LeftDisplay": "DECRYPT",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "ENCRYPT",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "GET",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "UNWRAP",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "WRAP",
+                "IsCorrect": true
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/implement-azure-app-configuration/5-secure-app-configuration-data",
+            "https://learn.microsoft.com/azure/azure-app-configuration/concept-customer-managed-keys"
+        ]
+    },
+    {
+        "Question": "You are developing a solution that stores secrets in an Azure Key Vault named myvault. </br> You need to retrieve the value for a secret named mysecret that is stored in myvault. </br> Which CLI command should you use?",
+        "QuestionType": 0,
+        "Category": 2,
+        "Options": [
+            {
+                "LeftDisplay": "az keyvault secret recover --name mysecret --vault-name myvault",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "az keyvault secret recover --id myvault/mysecret",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "az keyvault secret show --id myvault/mysecret",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "az keyvault secret show --name mysecret --vault-name myvault",
+                "IsCorrect": true
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/implement-azure-key-vault/5-set-retrieve-secret-azure-key-vault",
+            "https://learn.microsoft.com/cli/azure/keyvault/secret?view=azure-cli-latest"
+        ]
+    },
+    {
+        "Question": "You manage the staging and production deployment slots of an Azure App Service web app named app1. </br> You need to ensure a connection string is not swapped when swapping is performed. </br> Which configuration should you use?",
+        "QuestionType": 0,
+        "Category": 0,
+        "Options": [
+            {
+                "LeftDisplay": "Deployment Center",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Deployment slot setting",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Managed identity",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Scale up",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/host-a-web-app-with-azure-app-service/",
+            "https://learn.microsoft.com/azure/app-service/deploy-staging-slots",
+            "https://learn.microsoft.com/azure/app-service/deploy-configure-credentials?tabs=cli"
+        ]
+    },
+    {
+        "Question": "A container group in Azure Container Instances has multiple containers. </br> The containers must restart when the process executed in the container group terminates due to an error. </br> You need to define the restart policy for the container group. </br> Which Azure CLI command should you use?",
+        "QuestionType": 0,
+        "Category": 0,
+        "Options": [
+            {
+                "LeftDisplay": "az container restart --name mycontainer --resource-group myResourceGroup --no-wait",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "az container create --resource-group myResourceGroup --name mycontainer --image mycontainerimage --restart-policy Always",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "az container create --resource-group myResourceGroup --name mycontainer --image mycontainerimage --restart-policy Never",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "az container create --resource-group myResourceGroup --name mycontainer --image mycontainerimage --restart-policy OnFailure",
+                "IsCorrect": true
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/create-run-container-images-azure-container-instances/4-run-containerized-tasks-restart-policies",
+            "https://learn.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-restart"
+        ]
+    },
+    {
+        "Question": "You are developing a cloud native containerized background task application. </br> You need to choose the appropriate container deployment option based on the following requirements: </br> <ul> <li> Minimize cost </li> <li> Support service discovery and traffic splitting </li> <li> Enable event-driven application architecture </li> <li> Do not require access to native Kubernetes API </li> </ul> </br> What should you use?",
+        "QuestionType": 0,
+        "Category": 0,
+        "Options": [
+            {
+                "LeftDisplay": "Azure Spring Apps",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Azure Container Instances",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Azure Container Apps",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Azure Functions",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/azure/container-apps/compare-options",
+            "https://learn.microsoft.com/azure/container-apps/"
+        ]
+    },
+    {
+        "Question": "You need to read an Azure Cosmos DB change feed by using a reactive model. What are two possible ways to achieve this goal? Each correct answer presents a complete solution.</br> ",
+        "QuestionType": 1,
+        "Category": 1,
+        "Options": [
+            {
+                "LeftDisplay": "Azure Functions with an Azure Cosmos DB trigger",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Change feed processor library",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Azure Functions with an Azure Event Grid trigger",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Change feed pull model",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/consume-azure-cosmos-db-sql-api-change-feed-use-sdk/",
+            "https://learn.microsoft.com/training/modules/handle-events-azure-functions-azure-cosmos-db-sql-api-change-feed/",
+            "https://learn.microsoft.com/azure/cosmos-db/nosql/read-change-feed"
+        ]
+    },
+    {
+        "Question": "You need to implement an Azure Storage lifecycle policy for append blobs. </br> Which rule action should you use?",
+        "QuestionType": 0,
+        "Category": 1,
+        "Options": [
+            {
+                "LeftDisplay": "delete",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "enableAutoTierToHotFromCool",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "tierToArchive",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "tierToCool",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/manage-azure-blob-storage-lifecycle/3-blob-storage-lifecycle-policies",
+            "https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview"
+        ]
+    },
+    {
+        "Question": "A company plans to host a static website that uses a custom domain and Azure Storage in multiple regions. </br> You need to serve website content and minimize latency. </br> What are two possible ways to achieve this goal? Each correct answer presents part of the solution.",
+        "QuestionType": 1,
+        "Category": 1,
+        "Options": [
+            {
+                "LeftDisplay": "Upload static content to a storage container named **$web.**",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Use Azure Traffic Manager to route users to the closest region.",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Upload static content to a storage container named **web.**",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Use Azure Content Delivery Network for regional caching.",
+                "IsCorrect": true
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/create-cdn-static-resources-blob-storage/",
+            "https://learn.microsoft.com/azure/storage/blobs/storage-blob-static-website"
+        ]
+    },
+    {
+        "Question": "You need to set a duration of 10 seconds for a key stored in Azure Cache for Redis. </br> Which code segment should you use?",
+        "QuestionType": 0,
+        "Category": 3,
+        "Options": [
+            {
+                "LeftDisplay": "using (var cache = ConnectionMultiplexer.Connect('')) { IDatabase db = cache.GetDatabase(); bool setValue = await db.StringSetAsync('test:key', '10'); }",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "using (var cache = ConnectionMultiplexer.Connect('')) { IDatabase db = cache.GetDatabase(); bool setValue = await db.StringSetAsync('test:key', '10', TimeSpan.FromSeconds(10)); }",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "using (var cache = ConnectionMultiplexer.Connect('')) { IDatabase db = cache.GetDatabase(); bool setValue = await db.StringSetAsync('test:key', '10', DateTime.UtcNow.AddSeconds(10)); }",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "using (var cache = ConnectionMultiplexer.Connect('')) { IDatabase db = cache.GetDatabase(); bool setValue = await db.StringSetAsync('test:key', '10', DateTime.Now.AddSeconds(10)); }",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/develop-for-azure-cache-for-redis/",
+            "https://learn.microsoft.com/dotnet/api/overview/azure/redis-cache?view=azure-dotnet"
+        ]
+    },
+    {
+        "Question": "You manage an Azure Cache for Redis instance. </br> You need to load data on demand into the cache from a large database. </br> Which application architecture pattern should you use?",
+        "QuestionType": 0,
+        "Category": 3,
+        "Options": [
+            {
+                "LeftDisplay": "session store",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "distributed transactions",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "data cache",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "content cache",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/intro-to-azure-cache-for-redis/2-what-is-azure-cache-for-redis",
+            "https://learn.microsoft.com/azure/architecture/patterns/cache-aside"
+        ]
+    },
+    {
+        "Question": "You have an Azure Cache for Redis instance. </br> You have the following requirements: </br> <ul> <li> Replica nodes must be hosted in different availability zones. </li> <li> Nonvolatile memory must be used. </li> </ul> </br> You need to select a pricing tier. </br> Which pricing tier should you use?",
+        "QuestionType": 0,
+        "Category": 3,
+        "Options": [
+            {
+                "LeftDisplay": "Standard",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Premium",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Enterprise",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Enterprise Flash",
+                "IsCorrect": true
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/intro-to-azure-cache-for-redis/2-what-is-azure-cache-for-redis",
+            "https://azure.microsoft.com/pricing/details/cache/"
+        ]
+    },
+    {
+        "Question": "A company uses Application Insights to instrument an application hosted in Azure App Service. </br> Instrumentation data that is collected by using API calls in the code is not available in Application Insights. </br> You need to ensure the collected data is available in Application Insights. </br> What should you do?",
+        "QuestionType": 0,
+        "Category": 3,
+        "Options": [
+            {
+                "LeftDisplay": "Enable auto-instrumentation.",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Enable manual instrumentation.",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Verify the health of Application Insights.",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Verify the health of Azure App Service.",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/monitor-app-performance/5-app-instrumentation",
+            "https://learn.microsoft.com/azure/azure-monitor/app/azure-web-apps"
+        ]
+    },
+    {
+        "Question": "You plan to use a shared access signature to protect access to services within a general-purpose v2 storage account. </br> You need to identify the type of service that you can protect by using the user delegation shared access signature. </br> Which service should you identify?",
+        "QuestionType": 0,
+        "Category": 2,
+        "Options": [
+            {
+                "LeftDisplay": "Blob",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "File",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Queue",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Table",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/implement-shared-access-signatures/2-shared-access-signatures-overview",
+            "https://learn.microsoft.com/azure/storage/common/storage-sas-overview"
+        ]
+    },
+    {
+        "Question": "You plan to create a key namespace hierarchy in Azure App Configuration. </br> You need to separate individual key names. </br> Which character should you use?",
+        "QuestionType": 0,
+        "Category": 2,
+        "Options": [
+            {
+                "LeftDisplay": ":",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "*",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": ",",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "\\",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/implement-azure-app-configuration/3-keys-values",
+            "https://learn.microsoft.com/azure/azure-app-configuration/concept-key-value"
+        ]
+    },
+    {
+        "Question": "You need to generate a new version of a key stored in Azure Key Vault. </br> Which code segment should you use?",
+        "QuestionType": 0,
+        "Category": 2,
+        "Options": [
+            {
+                "LeftDisplay": "az keyvault key rotation-policy update -n mykey --vault-name mykeyvault --value path/to/policy.json",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "az keyvault key purge --name mykey --vault-name mykeyvault",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "az keyvault key rotate --vault-name mykeyvault --name mykey",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "az keyvault key set-attributes --vault-name mykeyvault --name mykey –policy path/to/policy.json",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/control-azure-services-with-cli/",
+            "https://learn.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-rotate"
+        ]
+    },
+    {
+        "Question": "You have an Azure Storage account container named container1. </br> You need to configure access to the container to meet the following requirements: </br> <ul> <li> The shared access signature (SAS) token should be secured with Microsoft Entra ID credentials. </li> <li> Role-based access control (RBAC) should be used. </li> <li> The SAS token should support granting access to containers. </li> </ul> </br> Which type of SAS should you use?",
+        "QuestionType": 0,
+        "Category": 2,
+        "Options": [
+            {
+                "LeftDisplay": "account",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "user delegation",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "service",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "stored access policy",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/store-app-data-with-azure-blob-storage/",
+            "https://learn.microsoft.com/training/modules/secure-azure-storage-account/",
+            "https://learn.microsoft.com/rest/api/storageservices/create-user-delegation-sas",
+            "https://learn.microsoft.com/rest/api/storageservices/create-account-sas",
+            "https://learn.microsoft.com/rest/api/storageservices/create-service-sas"
+        ]
+    },
+    {
+        "Question": "You need to capture events streaming from Azure Event Hubs. </br> To which three locations can you capture data? Each correct answer presents a complete solution.",
+        "QuestionType": 1,
+        "Category": 4,
+        "Options": [
+            {
+                "LeftDisplay": "Azure Blob Storage",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Azure Data Lake Storage Gen1",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Azure Functions",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Azure Stream Analytics",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Azure Data Lake Storage Gen2",
+                "IsCorrect": true
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/intro-to-event-hubs/",
+            "https://learn.microsoft.com/azure/event-hubs/event-hubs-capture-enable-through-portal"
+        ]
+    },
+    {
+        "Question": "You have an Azure Service Bus queue. </br> You need to ensure a publisher can send messages into a topic and multiple subscribers can become eligible to consume the messages. </br> Which message routing pattern should you use?",
+        "QuestionType": 0,
+        "Category": 4,
+        "Options": [
+            {
+                "LeftDisplay": "simple request/reply",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "multicast request/reply",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "multiplexing",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "multiplexed request/reply",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/discover-azure-message-queue/5-messages-payloads-serialization",
+            "https://learn.microsoft.com/azure/service-bus-messaging/service-bus-messages-payloads"
+        ]
+    },
+    {
+        "Question": "You are developing a .NET project that will manage messages in Azure Storage queues. </br> You need to verify the presence of messages in a queue without removing them from the queue. </br> Which method should you use?",
+        "QuestionType": 0,
+        "Category": 4,
+        "Options": [
+            {
+                "LeftDisplay": "Peek",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "PeekMessages",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "ReceiveMessages",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "ReceiveMessageAsync",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/discover-azure-message-queue/8-queue-storage-code-examples",
+            "https://learn.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues?tabs=dotnet"
+        ]
+    },
+    {
+        "Question": "You have an application that requires message queuing. </br> You need to recommend a solution that meets the following requirements: </br> <ul> <li> automatic duplicate message detection. </li> <li> ability to send 2 MB messages. </li> </ul> </br> Which message queuing solution should you recommend?",
+        "QuestionType": 0,
+        "Category": 4,
+        "Options": [
+            {
+                "LeftDisplay": "Azure Service Bus Premium tier",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Azure Service Bus Standard tier",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Azure Storage queues with locally redundant storage (LRS)",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Azure Storage queues with zone-redundant storage (ZRS)",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/discover-azure-message-queue/3-azure-service-bus-overview",
+            "https://learn.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted"
+        ]
+    },
+    {
+        "Question": "A company plans to use Azure Cache for Redis. The company plans to use Redis modules. </br> You need to recommend an Azure Cache for Redis service tier. </br> Which service tier should you recommend?",
+        "QuestionType": 0,
+        "Category": 3,
+        "Options": [
+            {
+                "LeftDisplay": "Basic",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Standard",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Premium",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Enterprise",
+                "IsCorrect": true
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/develop-for-azure-cache-for-redis/",
+            "https://learn.microsoft.com/training/modules/develop-for-azure-cache-for-redis/2-azure-cache-redis-overview",
+            "https://learn.microsoft.com/azure/azure-cache-for-redis/cache-overview"
+        ]
+    },
+    {
+        "Question": "You plan to use Azure Cache for Redis as the caching layer for several applications. </br> You have the following requirements: </br> <ul> <li> Prevent data loss if nodes are down. </li> <li> Minimize storage costs. </li> <li> Optimize performance. </li> </ul> </br> Which solution should you use?",
+        "QuestionType": 0,
+        "Category": 3,
+        "Options": [
+            {
+                "LeftDisplay": "Redis database (RDB) persistence with the soft-delete feature enabled on the associated storage account.",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Redis database (RDB) persistence with the soft-delete feature disabled on the associated storage account.",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Append only File (AOF) persistence with the soft-delete feature disabled on the associated storage account.",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Append only File (AOF) persistence with the soft-delete feature enabled on the associated storage account.",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/develop-for-azure-cache-for-redis/3-configure-azure-cache-redis",
+            "https://learn.microsoft.com/azure/azure-cache-for-redis/cache-how-to-premium-persistence"
+        ]
+    },
+    {
+        "Question": "You have this GameStat class. </br> You need to store an instance of the GameStat class in Azure Cache for Redis. </br> Which two code segments should you use? Each correct answer presents a complete solution.",
+        "QuestionType": 1,
+        "Image": "assets/GameStat.png",
+        "Category": 3,
+        "Options": [
+            {
+                "LeftDisplay": "var stat = new GameStat('Soccer', new DateTime(2019, 7, 16), 'Local Game', new[] { 'Team 1', 'Team 2' }, new[] { ('Team 1', 2), ('Team 2', 1) }); string serializedValue = System.Text.Json.JsonSerializer.Serialize (stat); bool added = db.StringSet('event:1950-world-cup', serializedValue);",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "var stat = new GameStat('Soccer', new DateTime(2019, 7, 16), 'Local Game', new[] { 'Team 1', 'Team 2' }, new[] { ('Team 1', 2), ('Team 2', 1) }); bool added = db.StringSet('event:1950-world-cup', stat.ToString());",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "var stat = new GameStat('Soccer', new DateTime(2019, 7, 16), 'Local Game', new[] { 'Team 1', 'Team 2' }, new[] { ('Team 1', 2), ('Team 2', 1) }); string serializedValue = System.Text.Json.JsonSerializer.Serialize (stat); bool added = db. StringGet ('event:1950-world-cup', serializedValue);",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "var stat = new GameStat('Soccer', new DateTime(2019, 7, 16), 'Local Game', new[] { 'Team 1', 'Team 2' }, new[] { ('Team 1', 2), ('Team 2', 1) }); bool added = db.StringGet('event:1950-world-cup', stat.ToString());",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/develop-for-azure-cache-for-redis/4-interact-redis-api?cid=kerryherger&ns-enrollment-type=learningpath&ns-enrollment-id=learn.wwl.az-204-integrate-caching-content-delivery-within-solutions",
+            "https://learn.microsoft.com/azure/azure-cache-for-redis/cache-overview"
+        ]
+    },
+    {
+        "Question": "You plan to use Application Insights to monitor the performance of an on-premises web application. </br> You need to identify a configuration that satisfies the following requirements: </br> <ul> <li> Minimize the volume of data ingested into Application Insights. </li> <li> Maximize the accuracy of the collected metrics. </li> </ul> </br> What should you do?",
+        "QuestionType": 0,
+        "Category": 3,
+        "Options": [
+            {
+                "LeftDisplay": "Apply sampling.",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Apply filtering.",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Use log-based metrics.",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Use standard metrics.",
+                "IsCorrect": true
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/monitor-app-performance/4-logs-based-metrics",
+            "https://learn.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics"
+        ]
+    },
+    {
+        "Question": "You manage an Azure App Service web app named app1. App1 is registered as an application in Microsoft Entra ID. </br> You need to ensure that Microsoft Entra ID signed-in user information can be retrieved by app1 by using Microsoft Graph. </br> What should you configure?",
+        "QuestionType": 0,
+        "Category": 2,
+        "Options": [
+            {
+                "LeftDisplay": "appRoles",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "application permissions",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "groupMembershipClaims",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "delegated permissions",
+                "IsCorrect": true
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/msgraph-user-photo-information/",
+            "https://learn.microsoft.com/azure/active-directory/develop/reference-app-manifest?WT.mc_id=Portal-Microsoft_AAD_RegisteredApps",
+            "https://learn.microsoft.com/graph/auth/auth-concepts"
+        ]
+    },
+    {
+        "Question": "You develop a multitenant web application named App1. You plan to register App1 with multiple Microsoft Entra ID tenants. </br> You need to identify the relationship between the application objects and security principals associated with App1. </br> Which relationship should you identify?",
+        "QuestionType": 0,
+        "Category": 2,
+        "Options": [
+            {
+                "LeftDisplay": "App1 will have multiple application objects and multiple service principals.",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "App1 will have multiple application objects and a single service principal.",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "App1 will have a single application object and multiple service principals.",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "App1 will have a single application object and a single service principal.",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/explore-microsoft-identity-platform/3-app-service-principals",
+            "https://learn.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals"
+        ]
+    },
+    {
+        "Question": "You manage an Azure App Service Functions app named app1 and a storage account named account1. </br> You have the following requirements: </br> <ul> <li> App1 should access account1 without managing credentials. </li> <li> The service principal associated with app1 cannot be explicitly deleted. </li> </ul> </br> You need to configure a security principal for app1. </br> Which security principal should you use?",
+        "QuestionType": 0,
+        "Category": 2,
+        "Options": [
+            {
+                "LeftDisplay": "application",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "system-assigned managed identity",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "user-assigned managed identity",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "legacy",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/implement-managed-identities/",
+            "https://learn.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals"
+        ]
+    },
+    {
+        "Question": "You develop a web application hosted on the Web Apps feature of Microsoft Azure App Service. </br> You need to enable and configure Azure Web Service Local Cache with 1.5 GB. </br> Which two code segments should you use? Each correct answer presents part of the solution.",
+        "QuestionType": 1,
+        "Category": 0,
+        "Options": [
+            {
+                "LeftDisplay": "'WEBSITE_LOCAL_CACHE_OPTION': 'Always'",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "'WEBSITE_LOCAL_CACHE_SIZEINMB': '1500'",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "'WEBSITE_LOCAL_CACHE_OPTION': 'Enable'",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "'WEBSITE_LOCAL_CACHE_SIZEINMB': '1.5'",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/configure-web-app-settings/",
+            "https://learn.microsoft.com/azure/app-service/overview-local-cache"
+        ]
+    },
+    {
+        "Question": "You have an Azure Key Vault named MyVault. </br> You need to use a key vault reference to access a secret named MyConnection from MyVault. </br> Which code segment should you use?",
+        "QuestionType": 0,
+        "Category": 2,
+        "Options": [
+            {
+                "LeftDisplay": "@Microsoft.KeyVault(Secret=MyConnection;VaultName=MyVault)",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "@Microsoft.KeyVault(SecretName=MyConnection;VaultName=MyVault)",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "@Microsoft.KeyVault(Secret=MyConnection;Vault=MyVault)",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "@Microsoft.KeyVault(SecretName=MyConnection;Vault=MyVault)",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/paths/create-serverless-applications/",
+            "https://learn.microsoft.com/azure/app-service/app-service-key-vault-references?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=azure-cli#reference-syntax"
+        ]
+    },
+    {
+        "Question": "You develop an App Service app hosted on Windows Platform. Users report that the app is failing. </br> You need to begin troubleshooting the app by inspecting a copy of the page that is returned when the HTTP return code is greater than 400. </br> Which type of log should you review?",
+        "QuestionType": 0,
+        "Category": 3,
+        "Options": [
+            {
+                "LeftDisplay": "application",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "web server",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "detailed error",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "deployment",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/configure-web-app-settings/5-enable-diagnostic-logging"
+        ]
+    },
+    {
+        "Question": "You manage the deployment of an Azure Cosmos DB account. </br> You must define custom logic by using the .NET SDK change feed processor to process changes that the change feed reads. </br> You need to select the appropriate change feed processor component. </br> Which component should you use?",
+        "QuestionType": 0,
+        "Category": 1,
+        "Options": [
+            {
+                "LeftDisplay": "monitored container",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "delegate",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "compute instance",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "lease container",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/consume-azure-cosmos-db-sql-api-change-feed-use-sdk/2-understand-features-sdk",
+            "https://learn.microsoft.com/azure/cosmos-db/nosql/change-feed-processor?tabs=dotnet"
+        ]
+    },
+    {
+        "Question": "You are planning to host a static website in an Azure Storage account. </br> The website must be accessible only through HTTPS by using a custom domain name. </br> You enable the static website hosting feature. You set the default page to index.html and the error page to error.html. </br> Which two actions should you perform next? Each correct answer presents part of the solution.",
+        "QuestionType": 1,
+        "Category": 1,
+        "Options": [
+            {
+                "LeftDisplay": "Set the access level of the web hosting container to public.",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Add the custom domain under networking in the Azure Storage account.",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Integrate the static website with Azure Content Delivery Network (CDN).",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Create a container named $web.",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Upload the index.html and error.html files to the web hosting container.",
+                "IsCorrect": true
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/azure/storage/blobs/storage-blob-static-website",
+            "https://learn.microsoft.com/azure/storage/blobs/storage-blob-static-website-how-to?tabs=azure-cli"
+        ]
+    },
+    {
+        "Question": "You manage APIs in production by using Azure API Management. </br> You need to remove X-Powered-By and X-AspNet-Version headers from a response. </br> Which code segment should you use?",
+        "QuestionType": 0,
+        "Category": 4,
+        "Options": [
+            {
+                "LeftDisplay": "<policies> <inbound> <base /> </inbound> <backend> <base /> </backend> <outbound> <set-header name='X-Powered-By' exists-action='append' /> <set-header name='X-AspNet-Version' exists-action='append' /> <base /> </outbound> <on-error> <base /> </on-error> </policies>",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "<policies> <inbound> <base /> </inbound> <backend> <set-header name='X-Powered-By' exists-action='delete' /> <set-header name='X-AspNet-Version' exists-action='delete' /> <base /> </backend> <outbound> <base /> </outbound> <on-error> <base /> </on-error> </policies>",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "<policies> <inbound> <base /> </inbound> <backend> <base /> </backend> <outbound> <set-header name='X-Powered-By' exists-action='delete' /> <set-header name='X-AspNet-Version' exists-action='delete' /> <base /> </outbound> <on-error> <base /> </on-error> </policies>",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "<policies> <inbound> <base /> </inbound> <backend> <set-header name='X-Powered-By' exists-action='append' /> <set-header name='X-AspNet-Version' exists-action='append' /> <base /> </backend> <outbound> <base /> </outbound> <on-error> <base /> </on-error> </policies>",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/introduction-to-azure-api-management/",
+            "https://learn.microsoft.com/azure/api-management/api-management-transformation-policies#example---removing-header"
+        ]
+    },
+    {
+        "Question": "You manage an instance of Azure API Management. You define policies to multiple scopes. </br> You need to enforce a policy evaluation order. </br> What should you use?",
+        "QuestionType": 0,
+        "Category": 4,
+        "Options": [
+            {
+                "LeftDisplay": "the <base /> element",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "the <when /> element",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "the follow-redirects attribute",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "the condition attribute",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/explore-api-management/4-api-management-policies",
+            "https://learn.microsoft.com/azure/api-management/set-edit-policies?tabs=form"
+        ]
+    },
+    {
+        "Question": "You need to write a filter condition for an Azure Service Bus topic. </br> Which three filters can you use? Each correct answer presents a complete solution.",
+        "QuestionType": 1,
+        "Category": 4,
+        "Options": [
+            {
+                "LeftDisplay": "SQL",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Boolean",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Size",
+                "IsCorrect": false
+            },
+            {
+                "LeftDisplay": "Correlation",
+                "IsCorrect": true
+            },
+            {
+                "LeftDisplay": "Content",
+                "IsCorrect": false
+            }
+        ],
+        "ResourceLinks": [
+            "https://learn.microsoft.com/training/modules/implement-message-workflows-with-service-bus/",
+            "https://learn.microsoft.com/azure/service-bus-messaging/topic-filters"
         ]
     }
 ]
