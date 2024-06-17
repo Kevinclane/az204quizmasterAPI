@@ -63,6 +63,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 });
 
 builder.Services.AddTransient<JsonIntakeService>();
+builder.Services.AddTransient<QuizService>();
 
 var app = builder.Build();
 

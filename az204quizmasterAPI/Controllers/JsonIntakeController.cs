@@ -2,11 +2,9 @@
 using az204quizmasterAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace az204quizmasterAPI.Controllers
 {
-    [Route("api/json-intake")]
+    [Route("api/[Controller]")]
     [ApiController]
     public class JsonIntakeController : ControllerBase
     {

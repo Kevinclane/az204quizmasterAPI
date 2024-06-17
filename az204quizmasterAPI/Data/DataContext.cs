@@ -8,5 +8,7 @@ namespace az204quizmasterAPI.Data
 
         public DbSet<QA> QAs { get; set; }
         public DbSet<Option> Options { get; set; }
+        public DbSet<Quiz> Quizzes { get; set; }
+        public DbSet<ActiveQA> ActiveQAs { get; set; }
     }
 }

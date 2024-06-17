@@ -1,5 +1,4 @@
-﻿using az204quizmasterAPI.Models.RequestModels;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 
 namespace az204quizmasterAPI.Models.Entities
 {
