@@ -50,26 +50,3 @@ Blank:
     }
 
 
-
-
-
-
-
-
-
-
-    Generating a quiz:
-    Client sends list of desired categories and UUId
-    Api receives request
-    Get all QAs related
-    Build list of ActiveQuiz objects 
-    Save to DB
-    Return random question
-
-    ActiveQuiz {
-        Id
-        UUId
-        QAId
-        State: enum (pending = 0, active = 1, incorrect = 2, correct = 3)
-        
-    }

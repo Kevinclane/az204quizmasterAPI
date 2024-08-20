@@ -5,7 +5,7 @@ namespace az204quizmasterAPI.Models.Entities
     public class ActiveQA
     {
         public int Id { get; set; }
-        public ActiveQAState State { get; set; } = ActiveQAState.Pending;
+        public List<int> SubmittedAnswers { get; set; } = new List<int>();
 
         public int QAId { get; set; }
         public QA QA { get; set; }

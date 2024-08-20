@@ -15,10 +15,6 @@ namespace az204quizmasterAPI.Controllers
             _quizService = quizService;
         }
 
-        //[HttpGet]
-        //public ActionResult 
-
-        // POST: QuizController/Create
         [HttpPost]
         [Route("create")]
         public int CreateQuiz(QuizRequest quizRequest)
@@ -34,15 +30,13 @@ namespace az204quizmasterAPI.Controllers
         }
 
 
-        [HttpGet]
-        [Route("nextQuestion/{id}")]
-        public ActiveQAVM? GetNextQuestion(int id)
+        [HttpPost]
+        [Route("submitOrNext")]
+        public ActiveQAVM? SubmitAndNextQuestion(AnswerSubmission answerSubmission)
         {
-            return _quizService.GetNextQuestion(id);
+            _quizService.SubmitAnswer(answerSubmission);
+            return _quizService.GetNextQuestion(answerSubmission);
         }
-
-        //[HttpPost]
-        //[Route("submitAnswer")]
 
     }
 }

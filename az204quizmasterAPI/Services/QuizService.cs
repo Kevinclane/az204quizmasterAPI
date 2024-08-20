@@ -2,7 +2,6 @@
 using az204quizmasterAPI.Models.Enums;
 using az204quizmasterAPI.Models.RequestModels;
 using az204quizmasterAPI.Models.ViewModels;
-using Microsoft.EntityFrameworkCore;
 
 namespace az204quizmasterAPI.Services
 {
@@ -70,14 +69,24 @@ namespace az204quizmasterAPI.Services
             return -1;
         }
 
-        public ActiveQAVM? GetNextQuestion(int quizId)
+        public void SubmitAnswer(AnswerSubmission answerSubmission)
+        {
+            if (answerSubmission.optionIds.Count != 0 && answerSubmission.aqaId != 0)
+            {
+                _context.ActiveQAs
+                    .Where(aqa => aqa.Id == answerSubmission.aqaId)
+                    .ExecuteUpdate(setters => setters.SetProperty(a => a.SubmittedAnswers, answerSubmission.optionIds));
+            }
+        }
+
+        public ActiveQAVM? GetNextQuestion(AnswerSubmission answerSubmission)
         {
             var ActiveQA = _context.ActiveQAs
                 .Include(aqa => aqa.QA)
                 .ThenInclude(qa => qa.Options)
-                .FirstOrDefault(aqa => aqa.QuizId == quizId && aqa.State == ActiveQAState.Pending);
+                .FirstOrDefault(aqa => aqa.QuizId == answerSubmission.quizId && aqa.SubmittedAnswers == new List<int>());
 
-            return ActiveQA != null ? new ActiveQAVM(ActiveQA) : null;           
+            return ActiveQA != null ? new ActiveQAVM(ActiveQA) : null;                           
         }
     }
 }

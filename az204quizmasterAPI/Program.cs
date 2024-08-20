@@ -21,13 +21,13 @@ var connectionString = "";
 if (builder.Environment.IsDevelopment())
 {
     connectionString = File.ReadAllText("localSecret.txt");
-    System.Console.WriteLine("Development mode");
+    Console.WriteLine("Development mode");
 
     builder.Services.AddCors(options =>
     {
         options.AddPolicy(name: "AllowedOrigins", policy =>
         {
-            policy.WithOrigins("http://localhost:8080/")
+            policy.WithOrigins("http://localhost:4200/")
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowAnyOrigin();
@@ -74,6 +74,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowedOrigins");
 
 app.UseAuthorization();
 
