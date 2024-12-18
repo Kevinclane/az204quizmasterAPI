@@ -27,10 +27,11 @@ if (builder.Environment.IsDevelopment())
     {
         options.AddPolicy(name: "AllowedOrigins", policy =>
         {
-            policy.WithOrigins("http://localhost:4200/")
+            policy
             .AllowAnyHeader()
             .AllowAnyMethod()
-            .AllowAnyOrigin();
+            .AllowAnyOrigin()
+            .SetIsOriginAllowed(origin => true);
         });
     });
 
@@ -71,9 +72,11 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+} else
+{
+    app.UseHttpsRedirection();
 }
 
-app.UseHttpsRedirection();
 
 app.UseCors("AllowedOrigins");
 
