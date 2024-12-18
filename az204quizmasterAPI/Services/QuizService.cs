@@ -81,12 +81,39 @@ namespace az204quizmasterAPI.Services
 
         public ActiveQAVM? GetNextQuestion(AnswerSubmission answerSubmission)
         {
+            List<int> ids = _context.ActiveQAs
+                .Where(aqa => aqa.QuizId == answerSubmission.quizId)
+                .Select(aqa => aqa.Id)
+                .ToList();
+
+            int randomIndex = new Random().Next(0, ids.Count);
+
             var ActiveQA = _context.ActiveQAs
                 .Include(aqa => aqa.QA)
                 .ThenInclude(qa => qa.Options)
-                .FirstOrDefault(aqa => aqa.QuizId == answerSubmission.quizId && aqa.SubmittedAnswers == new List<int>());
+                .FirstOrDefault(aqa => aqa.Id == ids[randomIndex]);
 
-            return ActiveQA != null ? new ActiveQAVM(ActiveQA) : null;                           
+            if(ActiveQA == null)
+            {
+                return null;
+            }
+
+            var ActiveQAVM = new ActiveQAVM(ActiveQA);
+            ActiveQAVM.TotalQuestionCount = _context.ActiveQAs.Count(aqa => aqa.QuizId == answerSubmission.quizId);
+            ActiveQAVM.FinishedQuestionCount = _context.ActiveQAs.Count(aqa => aqa.QuizId == answerSubmission.quizId && aqa.SubmittedAnswers != new List<int>());
+
+            return ActiveQAVM;
+        }
+
+        public Quiz? GetResults(int quizId)
+        {
+            var quiz = _context.Quizzes
+                .Include(q => q.ActiveQAs)
+                .ThenInclude(aqa => aqa.QA)
+                .ThenInclude(qa => qa.Options)
+                .FirstOrDefault(q => q.Id == quizId);
+
+            return quiz;
         }
     }
 }

@@ -8,7 +8,10 @@ namespace az204quizmasterAPI.Models.ViewModels
         public int QuizId { get; set; }
         public int QAId { get; set; }
         public int AQAid { get; set; }
-        public string Question { get; set; }        
+        public int TotalQuestionCount { get; set; }
+        public int FinishedQuestionCount { get; set; }
+        public string Question { get; set; }
+        public string Image { get; set; }
         public QuestionTypeEnum QuestionType { get; set; }
         public CategoryEnum Category { get; set; }
         public List<OptionVM> Options { get; set; } = new List<OptionVM>();
@@ -20,6 +23,7 @@ namespace az204quizmasterAPI.Models.ViewModels
             QAId = activeQA.QAId;
             AQAid = activeQA.Id;
             Question = activeQA.QA.Question;
+            Image = activeQA.QA.Image;
             QuestionType = activeQA.QA.QuestionType;
             Category = activeQA.QA.Category;
             Links = activeQA.QA.Links;
