@@ -48,7 +48,7 @@ else
          }
     };
 
-    var client = new SecretClient(new Uri("https://tempaz204keyvault.vault.azure.net/"), new DefaultAzureCredential(), options);
+    var client = new SecretClient(new Uri("https://example.com"), new DefaultAzureCredential(), options);
 
     System.Diagnostics.Trace.WriteLine("Logged in.");
 
