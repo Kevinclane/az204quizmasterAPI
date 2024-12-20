@@ -1,3 +1,10 @@
+# Az204quizmasterAPI
+
+## Deployment Challenge
+Refer to the AZ204 Quizmaster Deployment Challenge docx file for challenge instructions.
+
+## Misc info
+
 local connectionString format: Server="localhost";Port=3306;Database="{database}";UserID="root";Password="{password}";
 
 add migration: dotnet ef migrations add {name}
