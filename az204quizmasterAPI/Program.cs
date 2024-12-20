@@ -27,7 +27,7 @@ if (builder.Environment.IsDevelopment())
     {
         options.AddPolicy(name: "AllowedOrigins", policy =>
         {
-            policy.WithOrigins("http://localhost:4200/")
+            policy
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowAnyOrigin();
