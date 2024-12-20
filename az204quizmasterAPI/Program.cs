@@ -30,7 +30,8 @@ if (builder.Environment.IsDevelopment())
             policy
             .AllowAnyHeader()
             .AllowAnyMethod()
-            .AllowAnyOrigin();
+            .AllowAnyOrigin()
+            .SetIsOriginAllowed(origin => true);
         });
     });
 
@@ -71,9 +72,11 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+} else
+{
+    app.UseHttpsRedirection();
 }
 
-app.UseHttpsRedirection();
 
 app.UseCors("AllowedOrigins");
 
