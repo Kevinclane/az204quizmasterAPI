@@ -30,8 +30,7 @@ if (builder.Environment.IsDevelopment())
             policy
             .AllowAnyHeader()
             .AllowAnyMethod()
-            .AllowAnyOrigin()
-            .SetIsOriginAllowed(origin => true);
+            .AllowAnyOrigin();
         });
     });
 
@@ -49,7 +48,7 @@ else
          }
     };
 
-    var client = new SecretClient(new Uri("https://az204quizmasterkeyvault.vault.azure.net/"), new DefaultAzureCredential(), options);
+    var client = new SecretClient(new Uri("https://tempaz204keyvault.vault.azure.net/"), new DefaultAzureCredential(), options);
 
     System.Diagnostics.Trace.WriteLine("Logged in.");
 
@@ -72,11 +71,9 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-} else
-{
-    app.UseHttpsRedirection();
 }
 
+app.UseHttpsRedirection();
 
 app.UseCors("AllowedOrigins");
 
