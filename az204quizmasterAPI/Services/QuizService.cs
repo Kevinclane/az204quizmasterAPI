@@ -82,9 +82,14 @@ namespace az204quizmasterAPI.Services
         public ActiveQAVM? GetNextQuestion(AnswerSubmission answerSubmission)
         {
             List<int> ids = _context.ActiveQAs
-                .Where(aqa => aqa.QuizId == answerSubmission.quizId)
+                .Where(aqa => aqa.QuizId == answerSubmission.quizId && aqa.SubmittedAnswers == new List<int>())
                 .Select(aqa => aqa.Id)
                 .ToList();
+
+            if(ids.Count == 0)
+            {
+                return null;
+            }
 
             int randomIndex = new Random().Next(0, ids.Count);
 
