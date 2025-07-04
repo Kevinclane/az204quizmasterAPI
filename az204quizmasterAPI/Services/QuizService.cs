@@ -14,59 +14,79 @@ namespace az204quizmasterAPI.Services
             _context = context;
         }
 
-        private string generateClause(int clause)
+        private string GenerateClause(int clause)
         {
             return "Category = " + clause;
         }
 
-        public int CreateQuiz(QuizRequest quizRequest)
+        public int CreateLimitedQuiz(QuizRequest quizRequest)
         {
-            if (quizRequest.isValid())
+            var quiz = new Quiz();
+
+            int categoryQuestionCount = quizRequest.QuestionCount / quizRequest.getCategories().Count;
+            int remainder = quizRequest.QuestionCount % quizRequest.getCategories().Count;
+
+            List<QA> qas = new List<QA>();
+
+            foreach (int category in quizRequest.getCategories())
             {
-                var quiz = new Quiz();
-
-                List<int> clauses = new List<int>();
-
-                if (quizRequest.Compute)
+                int queryCount = categoryQuestionCount;
+                if (remainder > 0)
                 {
-                    clauses.Add((int)CategoryEnum.ComputeSolutions);
+                    queryCount++;
+                    remainder--;
                 }
 
-                if (quizRequest.Storage)
-                {
-                    clauses.Add((int)CategoryEnum.Storage);
-                }
-
-                if (quizRequest.Security)
-                {
-                    clauses.Add((int)CategoryEnum.Security);
-                }
-
-                if (quizRequest.Monitor)
-                {
-                    clauses.Add((int)CategoryEnum.Monitor);
-                }
-
-                if (quizRequest.ThirdParty)
-                {
-                    clauses.Add((int)CategoryEnum.ThirdParty);
-                }
-                string clausesJoined = string.Join(" OR ", clauses.Select(clause => generateClause(clause)));
-
-                var qas = _context.QAs.FromSqlRaw($"Select * FROM qas WHERE {clausesJoined}").ToList();
-
-                foreach (QA qa in qas)
-                {
-                    quiz.ActiveQAs.Add(new ActiveQA { QA = qa, QAId = qa.Id });
-                }
-
-                _context.Quizzes.Add(quiz);
-                _context.SaveChanges();
-
-                return quiz.Id;
+                var categoryGroupedQas = _context.QAs.FromSqlRaw($"SELECT * FROM qas WHERE {GenerateClause(category)} LIMIT {queryCount}").ToList();
+                qas.AddRange(categoryGroupedQas);
             }
 
-            return -1;
+            foreach (QA qa in qas)
+            {
+                quiz.ActiveQAs.Add(new ActiveQA { QA = qa, QAId = qa.Id });
+            }
+
+            _context.Quizzes.Add(quiz);
+            _context.SaveChanges();
+
+            return quiz.Id;
+        }
+
+        public int CreateFullQuiz(QuizRequest quizRequest)
+        {
+            var quiz = new Quiz();
+
+            List<int> clauses = quizRequest.getCategories();
+            String clausesJoined = String.Join(" OR ", clauses.Select(clause => GenerateClause(clause)));
+
+            var qas = _context.QAs.FromSqlRaw($"Select * FROM qas WHERE {clausesJoined}").ToList();
+
+            foreach (QA qa in qas)
+            {
+                quiz.ActiveQAs.Add(new ActiveQA { QA = qa, QAId = qa.Id });
+            }
+
+            _context.Quizzes.Add(quiz);
+            _context.SaveChanges();
+
+            return quiz.Id;
+        }
+
+        public int CreateQuiz(QuizRequest quizRequest)
+        {
+            if (!quizRequest.isValid())
+            {
+                return -1;
+            }
+
+            if (quizRequest.QuestionCount <= 0)
+            {
+                return CreateFullQuiz(quizRequest);
+            } 
+            else
+            {
+                return CreateLimitedQuiz(quizRequest);
+            }
         }
 
         public void SubmitAnswer(AnswerSubmission answerSubmission)
@@ -92,7 +112,7 @@ namespace az204quizmasterAPI.Services
             }
 
             int randomIndex = new Random().Next(0, ids.Count);
-
+            
             var ActiveQA = _context.ActiveQAs
                 .Include(aqa => aqa.QA)
                 .ThenInclude(qa => qa.Options)
