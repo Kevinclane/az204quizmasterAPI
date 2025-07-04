@@ -57,7 +57,7 @@ namespace az204quizmasterAPI.Services
             var quiz = new Quiz();
 
             List<int> clauses = quizRequest.getCategories();
-            String clausesJoined = String.Join(" OR ", clauses.Select(clause => GenerateClause(clause)));
+            string clausesJoined = string.Join(" OR ", clauses.Select(clause => GenerateClause(clause)));
 
             var qas = _context.QAs.FromSqlRaw($"Select * FROM qas WHERE {clausesJoined}").ToList();
 

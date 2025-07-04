@@ -55,6 +55,7 @@ else
     KeyVaultSecret secret = client.GetSecret("ConnectionString");
 
     connectionString = secret.Value;
+    
 }
 
 builder.Services.AddDbContext<DataContext>(options =>
